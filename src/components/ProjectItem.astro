@@ -1,0 +1,13 @@
+---
+const { name, description, deploy_link, github_link, image } = Astro.props;
+---
+
+<div>
+    <img src={image} alt={name} />
+    <div>
+        <h3>{name}</h3>
+        <p>{description}</p>
+        <a href={deploy_link}>Ver proyecto</a>
+        <a href={github_link}>Ver repositorio</a>
+    </div>
+</div>

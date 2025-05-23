@@ -1,0 +1,24 @@
+---
+import ProjectItem from './ProjectItem.astro';
+
+const projects = [
+    {
+        name: "",
+        description: "",
+        deploy_link: "",
+        github_link: "",
+        image: ""
+    },
+    {
+        name: "",
+        description: "",
+        deploy_link: "",
+        github_link: "",
+        image: ""
+    },
+]
+---
+
+<div>
+    {projects.map(project => <ProjectItem {...project} />)}
+</div>

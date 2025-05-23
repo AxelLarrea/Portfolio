@@ -1,0 +1,39 @@
+---
+import Badge from '../components/Badge.astro';
+import Layout from '../layouts/Layout.astro';
+
+import profilePicture from '../assets/ProfilePicture.webp';
+import Pill from '../components/Pill.astro';
+import GithubIcon from '../assets/icons/GithubIcon.astro';
+import LinkedInIcon from '../assets/icons/LinkedInIcon.astro';
+import GmailIcon from '../assets/icons/GmailIcon.astro';
+// Completar el texto de la primer sección.      
+---
+
+<Layout>
+	<main class="w-[1000px] flex flex-col items-center justify-center gap-4">
+		<section id="home" class="flex flex-col gap-4 p-36">
+			<img class="w-24 h-24 rounded-full object-cover" src={profilePicture.src} alt="Axel Larrea" width="96" height="96" />
+			<h1 class="text-4xl font-bold opacity-95">Hola! Soy Axel Larrea <Badge>Open to work</Badge></h1>
+			<h2 class="text-2xl opacity-90">Desarrollador web frontend. </h2>
+
+			<div class="flex gap-6">
+				<Pill href="https://linkedin.com/in/axel-larrea">
+					<LinkedInIcon class="size-6" />
+				</Pill>
+			
+				<Pill href="https://github.com/AxelLarrea">
+					<GithubIcon class="size-6" />
+				</Pill>
+				
+				<Pill href="mailto:axel.larrea.9@gmail.com">
+					<GmailIcon class="size-6" />
+				</Pill>
+			</div>
+		</section>
+
+		<section id="projects" class="flex flex-col gap-4 p-36">
+			
+		</section>
+	</main>
+</Layout>
