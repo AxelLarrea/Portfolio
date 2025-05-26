@@ -1,13 +1,31 @@
 ---
-const { name, description, deploy_link, github_link, image } = Astro.props;
+interface Tag {
+    name: string;
+    class: string;
+    icon: any;
+}
+
+const { name, description, deploy_link, github_link, image, tecnologies } = Astro.props;
 ---
 
-<div>
-    <img src={image} alt={name} />
-    <div>
-        <h3>{name}</h3>
-        <p>{description}</p>
-        <a href={deploy_link}>Ver proyecto</a>
-        <a href={github_link}>Ver repositorio</a>
+<div class="mb-12">
+    <div class="flex flex-col gap-2">
+        <h2 class="text-2xl font-bold text-white/90 underline underline-offset-4">{name}</h2>
+        <p class="text-lg text-gray-400">{description}</p>
+        <div class="flex gap-4">
+            <a href={deploy_link}>Ver proyecto</a>
+            <a href={github_link}>Ver repositorio</a>
+        </div>
     </div>
+
+    <div class="flex gap-2 my-4">
+        {tecnologies.map((tag: Tag) => (
+            <span class={`${tag.class} flex items-center gap-1 text-sm rounded-full px-2 py-1`}>
+                <tag.icon class="size-4" />
+                {tag.name}
+            </span>
+        ))}
+    </div>
+    
+    <img class="w-full object-contain rounded-lg " src={image} alt={name} />
 </div>
