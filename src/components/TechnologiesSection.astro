@@ -1,0 +1,69 @@
+---
+import TechPill from "../components/TechPill.astro";
+
+import SkillsIcon from "../assets/icons/SkillsIcon.astro";
+import CssIcon from '../assets/icons/CSSIcon.astro';
+import ReactIcon from '../assets/icons/ReactIcon.astro';
+import TailwindIcon from '../assets/icons/TailwindIcon.astro';
+import TypescriptIcon from '../assets/icons/TypescriptIcon.astro';
+import SupabaseIcon from '../assets/icons/SupabaseIcon.astro';
+import HtmlIcon from '../assets/icons/HTMLIcon.astro';
+import JavascriptIcon from '../assets/icons/JavascriptIcon.astro';
+
+export const tags = {
+    HTML: {
+        name: "HTML",
+        class: "bg-[#E54D26]/80 text-white",
+        icon: HtmlIcon,
+    },
+    CSS: {
+        name: "CSS",
+        class: "bg-[#3B5FD1]/90 text-white",
+        icon: CssIcon,
+    },
+    JAVASCRIPT: {
+        name: "JavaScript",
+        class: "bg-[#F7DF1E]/90 text-white",
+        icon: JavascriptIcon,  
+    },
+    REACT: {
+        name: "React",
+        class: "bg-blue-900 text-white",
+        icon: ReactIcon,
+    },
+    TAILWIND: {
+        name: "Tailwind CSS",
+        class: "bg-[#003159] text-white",
+        icon: TailwindIcon,
+    },
+    TYPESCRIPT: {
+        name: "TypeScript",
+        class: "bg-[#4A90E2] text-white",
+        icon: TypescriptIcon,
+    },
+    SUPABASE: {
+        name: "Supabase",
+        class: "bg-purple-900 text-white",
+        icon: SupabaseIcon,
+    },
+}
+---
+
+<section id="technologies" class="w-full flex flex-col gap-4 px-8 pt-20">
+    <h2 class="flex items-center gap-1 text-3xl font-bold opacity-95">
+        <SkillsIcon class="size-7" />
+        Tecnologías
+    </h2>
+
+    <div class="flex flex-wrap gap-4">
+        {
+            Object.entries(tags).map(([, value]) => (
+                <TechPill>
+                    <value.icon class="size-6" />
+                    {value.name}
+                </TechPill>
+                )
+            )
+        }
+    </div>
+</section>

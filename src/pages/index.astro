@@ -2,25 +2,26 @@
 import Layout from '../layouts/Layout.astro';
 import Badge from '../components/Badge.astro';
 import Pill from '../components/Pill.astro';
-import Projects from '../components/Projects.astro';
 
 import profilePicture from '../../public/ProfilePicture.webp';
 import GithubIcon from '../assets/icons/GithubIcon.astro';
 import LinkedInIcon from '../assets/icons/LinkedInIcon.astro';
-import GmailIcon from '../assets/icons/GmailIcon.astro';
-import ProjectsIcon from '../assets/icons/ProjectsIcon.astro';
-// Completar el texto de la primer sección.      
+import GmailIcon from '../assets/icons/GmailIcon.astro'; 
+import ProjectsSection from '../components/ProjectsSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+import TechnologiesSection from '../components/TechnologiesSection.astro';
 ---
 
 <Layout>
-	<main class="max-w-[600px] flex flex-col items-center justify-center gap-4">
-		<section id="home" class="w-full flex flex-col gap-4 px-8 pt-36">
+	<main class="max-w-[800px] flex flex-col items-center justify-center gap-4">
+		<section id="home" class="w-full flex flex-col gap-4 px-8 pt-30">
 			<img class="w-24 h-24 rounded-full object-cover" src={profilePicture.src} alt="Axel Larrea" width="96" height="96" />
 			<div class="flex items-center gap-2">
 				<h1 class="text-4xl font-bold opacity-95">Hola! Soy Axel Larrea</h1>
 				<Badge>Open to work</Badge>
 			</div>
-			<h2 class="text-2xl opacity-90">Desarrollador web frontend. </h2>
+			<h2 class="text-2xl text-gray-300">Desarrollador web frontend. </h2>
 
 			<div class="flex gap-4">
 				<Pill href="https://linkedin.com/in/axel-larrea">
@@ -40,12 +41,9 @@ import ProjectsIcon from '../assets/icons/ProjectsIcon.astro';
 			</div>
 		</section>
 
-		<section id="projects" class="w-full flex flex-col gap-4 px-8 pt-36">
-			<h2 class="flex items-center gap-2 text-2xl font-bold opacity-95">
-				<ProjectsIcon />
-				Proyectos
-			</h2>
-			<Projects />
-		</section>
+		<AboutSection />
+		<ProjectsSection />
+		<TechnologiesSection />
+		<ContactSection />
 	</main>
 </Layout>

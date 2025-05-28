@@ -1,0 +1,35 @@
+---
+import ProjectsIcon from "../assets/icons/ProjectsIcon.astro";
+
+import ProjectItem from './ProjectItem.astro';
+import { tags } from './TechnologiesSection.astro';
+
+const projects = [
+    {
+        name: "Clon de MercadoLibre",
+        description: "Web donde podrás realizar búsqueda de productos, filtrarlos y ordenarlos.",
+        deploy_link: "https://mcl-clone.vercel.app/",
+        github_link: "https://github.com/AxelLarrea/mcl-clone",
+        image: "/mcl-clone-ss.webp",
+        tecnologies: [tags.REACT, tags.CSS]
+    },
+    {
+        name: "Superheroes web app",
+        description: "Web de superheroes en la cual podrás buscar personajes, filtrarlos y ver su biografía.",
+        deploy_link: "https://superheroes-ts.vercel.app/",
+        github_link: "https://github.com/AxelLarrea/superheroes_ts",
+        image: "/superheroes-ss.webp",
+        tecnologies: [tags.REACT, tags.TYPESCRIPT, tags.TAILWIND, tags.SUPABASE]
+    },
+]
+---
+
+<section id="projects" class="w-full flex flex-col gap-4 px-8 pt-20">
+    <h2 class="flex items-center gap-2 text-3xl font-bold opacity-95">
+        <ProjectsIcon />
+        Proyectos
+    </h2>
+    {
+        projects.map(project => <ProjectItem {...project} />)
+    }
+</section>

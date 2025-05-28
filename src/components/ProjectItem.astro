@@ -1,4 +1,7 @@
 ---
+import GitRepoIcon from '../assets/icons/GitRepoIcon.astro';
+import WebIcon from '../assets/icons/WebIcon.astro';
+
 interface Tag {
     name: string;
     class: string;
@@ -8,24 +11,35 @@ interface Tag {
 const { name, description, deploy_link, github_link, image, tecnologies } = Astro.props;
 ---
 
-<div class="mb-12">
-    <div class="flex flex-col gap-2">
-        <h2 class="text-2xl font-bold text-white/90 underline underline-offset-4">{name}</h2>
-        <p class="text-lg text-gray-400">{description}</p>
-        <div class="flex gap-4">
-            <a href={deploy_link}>Ver proyecto</a>
-            <a href={github_link}>Ver repositorio</a>
+<div class="flex gap-4 mb-12">
+    <img class="h-60 w-100 object-cover rounded-lg" src={image} alt={name} width="400" height="240" />
+    <div class="flex flex-col justify-between">
+        <h2 class="text-2xl font-bold text-white/90">{name}</h2>
+        <div class="flex flex-wrap gap-2">
+            {tecnologies.map((tag: Tag) => (
+                <span class={`${tag.class} flex items-center gap-1 text-sm rounded-full px-2 py-1`}>
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                </span>
+            ))}
+        </div>
+        <p class="text-base text-gray-400">{description}</p>
+        <div class="flex gap-2">
+            <button>
+                <a  class="flex items-center gap-2 p-2 border border-gray-800 rounded-full transition hover:border-gray-700"
+                    href={deploy_link} target="_blank" rel="noopener noreferrer">
+                    <WebIcon class="size-6" />
+                    Preview
+                </a>
+            </button>
+
+            <button>
+                <a  class="flex items-center gap-2 p-2 border border-gray-800 rounded-full transition hover:border-gray-700"
+                    href={github_link} target="_blank" rel="noopener noreferrer">
+                    <GitRepoIcon class="size-6" />
+                    Code
+                </a>
+            </button>
         </div>
     </div>
-
-    <div class="flex gap-2 my-4">
-        {tecnologies.map((tag: Tag) => (
-            <span class={`${tag.class} flex items-center gap-1 text-sm rounded-full px-2 py-1`}>
-                <tag.icon class="size-4" />
-                {tag.name}
-            </span>
-        ))}
-    </div>
-    
-    <img class="w-full object-contain rounded-lg " src={image} alt={name} />
 </div>
