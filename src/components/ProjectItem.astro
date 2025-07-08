@@ -11,8 +11,8 @@ interface Tag {
 const { name, description, deploy_link, github_link, image, tecnologies } = Astro.props;
 ---
 
-<div class="flex flex-col gap-4 mx-auto md:flex-row md:max-w-full">
-    <img class="h-60 w-full object-cover rounded-lg sm:h-70" src={image} alt={name} width="400" height="280" />
+<div class="flex flex-col gap-4 mx-auto md:flex-row md:max-w-full md:h-[300px]">
+    <img class="h-60 w-full object-cover rounded-lg sm:h-full md:w-[500px]" src={image} alt={name} width="500" height="280" />
     <div class="flex flex-col gap-2 md:justify-between">
         <div class="flex flex-col gap-2">
             <h2 class="text-2xl font-bold text-white/90">{name}</h2>
