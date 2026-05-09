@@ -1,8 +1,32 @@
-<header class="w-full p-6 xs:p-8">
-    <nav class="max-w-[800px] text-sm flex flex-wrap justify-center gap-4 mx-auto max-xs:gap-2 xs:text-[15px] sm:text-base sm:gap-6 md:gap-10 opacity-90">
-        <a href="#about" class="hover:underline">Sobre mí</a>
-        <a href="#projects" class="hover:underline">Proyectos</a>
-        <a href="#technologies" class="hover:underline">Tecnologías</a>
-        <a href="#contact" class="hover:underline">Contacto</a>
-    </nav>
+---
+import { cv, sectionLinks } from '../data/portfolio';
+---
+
+<header class="sticky top-4 z-50 px-4 pt-4">
+	<div class="container-frame glass-panel rounded-[18px]">
+		<nav class="flex flex-wrap items-center justify-center gap-4 px-4 py-3 md:justify-between md:px-6">
+			<a href="#inicio" class="focus-ring font-display text-lg font-extrabold tracking-[-0.08em] text-[#e1fdff]">
+				AL.DEV
+			</a>
+			<div class="flex flex-wrap items-center justify-center gap-0 text-sm text-[var(--text-muted)] md:gap-3">
+				{
+					sectionLinks.map((link) => (
+						<a
+							href={link.href}
+							class="focus-ring rounded-full px-2 py-2 transition duration-300 hover:bg-white/5 hover:text-white md:px-3"
+						>
+							{link.label}
+						</a>
+					))
+				}
+			</div>
+			<a
+				href={cv.href}
+				download={cv.downloadName}
+				class="focus-ring rounded-[10px] border border-[rgba(0,242,255,0.24)] bg-[rgba(0,242,255,0.14)] px-4 py-2 font-mono text-xs uppercase tracking-[0.2em] text-[#e1fdff] transition duration-300 hover:shadow-[0_0_24px_rgba(0,242,255,0.22)]"
+			>
+				Descargar CV
+			</a>
+		</nav>
+	</div>
 </header>

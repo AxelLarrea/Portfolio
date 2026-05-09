@@ -1,8 +1,15 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import '@fontsource-variable/onest';
 import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'Axel Larrea | Desarrollador Web',
+	description = 'Portfolio personal de Axel Larrea con foco en desarrollo web, proyectos y stack técnico.'
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -11,15 +18,19 @@ import '../styles/global.css';
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Portfolio donde encontrarás información sobre mí, mis proyectos y habilidades." />
-		<link rel="stylesheet" href="/src/styles/global.css" />
+		<meta name="description" content={description} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Sora:wght@600;700;800&display=swap"
+			rel="stylesheet"
+		/>
 		<link rel="icon" type="image/svg+xml" href="/porftolio.svg" />
-		<title>Portfolio | Axel Larrea</title>
+		<title>{title}</title>
 	</head>
-	<body class="bg-neutral-950">
-		<div class="absolute inset-0 z-[-2] h-screen w-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3)_0%,rgba(120,119,198,0.1)_40%,transparent_70%)]"></div>
-		<Header />
-		<slot />
-		<Footer />
+	<body>
+		<div class="page-shell">
+			<slot />
+		</div>
 	</body>
 </html>

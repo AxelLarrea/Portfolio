@@ -1,52 +1,39 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Badge from '../components/Badge.astro';
-import Pill from '../components/Pill.astro';
-
-import profilePicture from '../../public/ProfilePicture.webp';
-import GithubIcon from '../assets/icons/GithubIcon.astro';
-import LinkedInIcon from '../assets/icons/LinkedInIcon.astro';
-import GmailIcon from '../assets/icons/GmailIcon.astro'; 
-import ProjectsSection from '../components/ProjectsSection.astro';
-import ContactSection from '../components/ContactSection.astro';
 import AboutSection from '../components/AboutSection.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ProjectsSection from '../components/ProjectsSection.astro';
 import TechnologiesSection from '../components/TechnologiesSection.astro';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout>
-	<main class="max-w-[800px] flex flex-col items-center justify-center gap-4">
-		<section id="home" class="w-full flex flex-col gap-4 px-8 pt-30">
-			<div class="flex items-center gap-6">
-				<img class="w-24 h-24 rounded-full object-cover" src={profilePicture.src} alt="Axel Larrea" width="96" height="96" />
-				<Badge>Open to work</Badge>
+<Layout
+	title="Axel Larrea | Portfolio"
+	description="Portfolio personal de Axel Larrea, desarrollador web enfocado en interfaces modernas, código limpio y productos web de alta calidad."
+>
+	<div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+		<div class="absolute left-[-10rem] top-[-8rem] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(0,242,255,0.18),transparent_68%)] blur-2xl"></div>
+		<div class="absolute bottom-[-10rem] right-[-8rem] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(138,43,226,0.16),transparent_70%)] blur-2xl"></div>
+	</div>
 
-			</div>
-			<div class="flex items-center gap-2">
-				<h1 class="text-4xl font-bold opacity-95">Hola! Soy Axel Larrea</h1>
-			</div>
-			<h2 class="text-2xl text-gray-300">Desarrollador web.</h2>
+	<Header />
 
-			<div class="flex flex-wrap gap-4">
-				<Pill href="https://linkedin.com/in/axel-larrea">
-					<LinkedInIcon class="size-6" />
-					LinkedIn
-				</Pill>
-			
-				<Pill href="https://github.com/AxelLarrea">
-					<GithubIcon class="size-6" />
-					GitHub
-				</Pill>
-				
-				<Pill href="mailto:axel.larrea.9@gmail.com">
-					<GmailIcon class="size-6" />
-					axel.larrea.9@gmail.com
-				</Pill>
-			</div>
-		</section>
+	<main class="container-frame pb-16 pt-8 md:pt-10">
+		<HeroSection />
+
+		<div class="scanner-line my-10 md:my-14"></div>
 
 		<AboutSection />
+
+		<div class="scanner-line my-10 md:my-14"></div>
+
 		<ProjectsSection />
+
+		<div class="scanner-line my-10 md:my-14"></div>
+
 		<TechnologiesSection />
-		<ContactSection />
 	</main>
+
+	<Footer />
 </Layout>

@@ -1,7 +1,4 @@
 ---
-import TechPill from "../components/TechPill.astro";
-
-import SkillsIcon from "../assets/icons/SkillsIcon.astro";
 import CssIcon from '../assets/icons/technologies/CSSIcon.astro';
 import ReactIcon from '../assets/icons/technologies/ReactIcon.astro';
 import TailwindIcon from '../assets/icons/technologies/TailwindIcon.astro';
@@ -9,67 +6,63 @@ import TypescriptIcon from '../assets/icons/technologies/TypescriptIcon.astro';
 import SupabaseIcon from '../assets/icons/technologies/SupabaseIcon.astro';
 import HtmlIcon from '../assets/icons/technologies/HTMLIcon.astro';
 import JavascriptIcon from '../assets/icons/technologies/JavascriptIcon.astro';
-import NodeIcon from "../assets/icons/technologies/NodeIcon.astro";
+import NodeIcon from '../assets/icons/technologies/NodeIcon.astro';
+import { technologies } from '../data/portfolio';
 
-export const tags = {
-    HTML: {
-        name: "HTML",
-        class: "bg-[#E54D26]/80 text-white",
-        icon: HtmlIcon,
-    },
-    CSS: {
-        name: "CSS",
-        class: "bg-[#3B5FD1]/90 text-white",
-        icon: CssIcon,
-    },
-    JAVASCRIPT: {
-        name: "JavaScript",
-        class: "bg-[#F7DF1E]/90 text-white",
-        icon: JavascriptIcon,  
-    },
-    REACT: {
-        name: "React",
-        class: "bg-blue-900 text-white",
-        icon: ReactIcon,
-    },
-    TAILWIND: {
-        name: "Tailwind CSS",
-        class: "bg-[#003159] text-white",
-        icon: TailwindIcon,
-    },
-    TYPESCRIPT: {
-        name: "TypeScript",
-        class: "bg-[#0851A6] text-white",
-        icon: TypescriptIcon,
-    },
-    SUPABASE: {
-        name: "Supabase",
-        class: "bg-purple-900 text-white",
-        icon: SupabaseIcon,
-    },
-    NODE: {
-        name: "Node.js",
-        class: "bg-[#41873F] text-white",
-        icon: NodeIcon,
-    },
-}
+const technologyIcons = {
+	html: HtmlIcon,
+	css: CssIcon,
+	javascript: JavascriptIcon,
+	typescript: TypescriptIcon,
+	react: ReactIcon,
+	node: NodeIcon,
+	tailwind: TailwindIcon,
+	supabase: SupabaseIcon
+};
 ---
 
-<section id="technologies" class="w-full flex flex-col gap-4 px-8 pt-20">
-    <h2 class="flex items-center gap-1 text-3xl font-bold opacity-95">
-        <SkillsIcon class="size-7" />
-        Tecnologías
-    </h2>
+<section id="tecnologias">
+	<div class="mb-6">
+		<p class="section-kicker">03 / Tecnologías</p>
+		<h2 class="font-display mt-3 text-3xl font-bold tracking-[-0.04em] text-white md:text-4xl">
+			Stack técnico para interfaces, servicios y producto web.
+		</h2>
+	</div>
 
-    <div class="flex flex-wrap gap-4">
-        {
-            Object.entries(tags).map(([, value]) => (
-                <TechPill>
-                    <value.icon class="size-6" />
-                    {value.name}
-                </TechPill>
-                )
-            )
-        }
-    </div>
+	<div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+		{
+			technologies.map((tech) => {
+				const Icon = tech.icon ? technologyIcons[tech.icon] : undefined;
+
+				return (
+					<div
+						class:list={[
+							'glass-panel group rounded-[20px] px-5 py-5 transition duration-300 hover:-translate-y-1',
+							tech.accent === 'cyan' && 'hover:border-[rgba(0,242,255,0.22)]',
+							tech.accent === 'violet' && 'hover:border-[rgba(138,43,226,0.24)]',
+							tech.accent === 'neutral' && 'hover:border-white/15'
+						]}
+					>
+						<div class="flex items-center gap-4">
+							<div class="flex h-14 w-14 items-center justify-center rounded-[16px] border border-white/10 bg-black/20">
+								{
+									Icon ? (
+										<Icon class="h-8 w-8" />
+									) : (
+										<span class="font-mono text-lg font-semibold tracking-[0.2em] text-[#e1fdff]">
+											{tech.badge}
+										</span>
+									)
+								}
+							</div>
+							<div>
+								<h3 class="font-display text-xl font-semibold tracking-[-0.03em] text-white">{tech.name}</h3>
+								<p class="mt-1 text-sm leading-6 text-[var(--text-soft)]">{tech.detail}</p>
+							</div>
+						</div>
+					</div>
+				);
+			})
+		}
+	</div>
 </section>
