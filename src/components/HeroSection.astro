@@ -17,9 +17,9 @@ const socialIcons = {
 	id="inicio"
 	class="glass-panel relative overflow-hidden rounded-[28px] border border-white/10 px-6 py-10 md:px-10 md:py-16"
 >
-	<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[rgba(0,242,255,0.5)] to-transparent"></div>
-	<div class="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
-	<div class="absolute inset-y-0 right-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
+	<div class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[rgba(0,242,255,0.5)] to-transparent"></div>
+	<div class="absolute inset-y-0 left-0 w-px bg-linear-to-b from-transparent via-white/10 to-transparent"></div>
+	<div class="absolute inset-y-0 right-0 w-px bg-linear-to-b from-transparent via-white/10 to-transparent"></div>
 
 	<div class="mx-auto flex max-w-4xl flex-col items-center text-center">
 		<div class="mb-6 inline-flex items-center gap-3 rounded-full border border-[rgba(0,242,255,0.24)] bg-[rgba(20,20,20,0.75)] px-4 py-2">
@@ -45,11 +45,11 @@ const socialIcons = {
 		<p class="section-kicker mb-4">{profile.kicker}</p>
 		<h1 class="font-display max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-[#f7f8f8] md:text-6xl">
 			Hola, soy {profile.name}.
-			<span class="block bg-gradient-to-r from-[#e1fdff] via-[#00f2ff] to-[#dcb8ff] bg-clip-text text-transparent">
+			<span class="block bg-linear-to-r from-[#e1fdff] via-[#00f2ff] to-[#dcb8ff] bg-clip-text text-transparent">
 				{profile.headline}
 			</span>
 		</h1>
-		<p class="mt-5 max-w-2xl text-base leading-7 text-[var(--text-muted)] md:text-lg">{profile.intro}</p>
+		<p class="mt-5 max-w-2xl text-base leading-7 text-(--text-muted) md:text-lg">{profile.intro}</p>
 
 		<div class="mt-8 flex w-full flex-wrap justify-center gap-3">
 			{
@@ -68,14 +68,14 @@ const socialIcons = {
 								item.accent === 'violet' &&
 									'border-[rgba(138,43,226,0.24)] bg-[rgba(138,43,226,0.06)] hover:shadow-[0_0_24px_rgba(138,43,226,0.25)]',
 								item.accent === 'neutral' &&
-									'border-white/10 bg-white/[0.03] hover:border-[rgba(0,242,255,0.22)] hover:bg-white/[0.05] hover:shadow-[0_0_24px_rgba(0,242,255,0.14)]'
+									'border-white/10 bg-white/3 hover:border-[rgba(0,242,255,0.22)] hover:bg-white/5 hover:shadow-[0_0_24px_rgba(0,242,255,0.14)]'
 							]}
 						>
 							<div class="flex h-9 w-9 items-center justify-center rounded-full bg-black/20">
 								<Icon class="h-4 w-4" />
 							</div>
 							<div class="text-left">
-								<p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--text-soft)]">{item.description}</p>
+								<p class="font-mono text-[11px] uppercase tracking-[0.22em] text-(--text-soft)">{item.description}</p>
 								<p class="text-sm font-medium text-white">{item.label}</p>
 							</div>
 						</a>
@@ -88,10 +88,10 @@ const socialIcons = {
 			{
 				heroHighlights.map((item, index) => (
 					<div class="rounded-[18px] border border-white/8 bg-black/18 px-4 py-4 text-left">
-						<p class="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--text-soft)]">
+						<p class="font-mono text-[11px] uppercase tracking-[0.28em] text-(--text-soft)">
 							0{index + 1}
 						</p>
-						<p class="mt-3 text-sm leading-6 text-[var(--text-muted)]">{item}</p>
+						<p class="mt-3 text-sm leading-6 text-(--text-muted)">{item}</p>
 					</div>
 				))
 			}

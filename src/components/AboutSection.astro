@@ -8,13 +8,13 @@ import { aboutContent } from '../data/portfolio';
 		<h2 class="font-display mt-4 text-3xl font-bold tracking-[-0.04em] text-white md:text-4xl">
 			{aboutContent.title}
 		</h2>
-		<p class="mt-4 text-sm leading-7 text-[var(--text-muted)]">{aboutContent.lead}</p>
+		<p class="mt-4 text-sm leading-7 text-(--text-muted)">{aboutContent.lead}</p>
 	</div>
 
 	<div class="glass-panel rounded-[24px] px-6 py-7 md:px-8 md:py-10">
 		{
 			aboutContent.paragraphs.map((paragraph, index) => (
-				<p class:list={['text-lg leading-8 text-[var(--text-muted)]', index > 0 && 'mt-5']}>{paragraph}</p>
+				<p class:list={['text-lg leading-8 text-(--text-muted)', index > 0 && 'mt-5']}>{paragraph}</p>
 			))
 		}
 		<div class="mt-6 flex flex-wrap gap-3">
@@ -25,7 +25,7 @@ import { aboutContent } from '../data/portfolio';
 							'rounded-full px-4 py-2 font-mono text-xs uppercase tracking-[0.18em]',
 							index === 0
 								? 'border border-[rgba(0,242,255,0.24)] bg-[rgba(0,242,255,0.08)] text-[#74f5ff]'
-								: 'border border-white/10 bg-white/[0.03] text-[var(--text-muted)]'
+								: 'border border-white/10 bg-white/3 text-(--text-muted)'
 						]}
 					>
 						{pill}
