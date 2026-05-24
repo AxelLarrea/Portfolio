@@ -13,8 +13,10 @@ import { projects } from '../data/portfolio';
 
 	<div class="grid gap-6 lg:grid-cols-2">
 		{
-			projects.map((project) => (
-				<ProjectItem project={project} />
+			projects.map((project, index) => (
+				<div class={`stagger-${index + 1}`}>
+					<ProjectItem project={project} />
+				</div>
 			))
 		}
 	</div>

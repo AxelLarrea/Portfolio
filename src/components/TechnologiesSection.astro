@@ -31,13 +31,14 @@ const technologyIcons = {
 
 	<div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
 		{
-			technologies.map((tech) => {
+			technologies.map((tech, index) => {
 				const Icon = tech.icon ? technologyIcons[tech.icon] : undefined;
 
 				return (
 					<div
 						class:list={[
-							'glass-panel group rounded-[20px] px-5 py-5 transition duration-300 hover:-translate-y-1',
+							`stagger-${index + 1}`,
+							'glass-panel group rounded-[20px] px-5 py-5 transition-[transform_border-color] duration-300 ease-out hover:-translate-y-1',
 							tech.accent === 'cyan' && 'hover:border-[rgba(0,242,255,0.22)]',
 							tech.accent === 'violet' && 'hover:border-[rgba(138,43,226,0.24)]',
 							tech.accent === 'neutral' && 'hover:border-white/15'

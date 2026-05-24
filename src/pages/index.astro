@@ -1,5 +1,6 @@
 ---
 import AboutSection from '../components/AboutSection.astro';
+import ExperienceSection from '../components/ExperienceSection.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import HeroSection from '../components/HeroSection.astro';
@@ -13,26 +14,40 @@ import Layout from '../layouts/Layout.astro';
 	description="Portfolio personal de Axel Larrea, desarrollador web enfocado en interfaces modernas, código limpio y productos web de alta calidad."
 >
 	<div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-		<div class="absolute left-[-10rem] top-[-8rem] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(0,242,255,0.18),transparent_68%)] blur-2xl"></div>
-		<div class="absolute bottom-[-10rem] right-[-8rem] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(138,43,226,0.16),transparent_70%)] blur-2xl"></div>
+		<div class="absolute -left-40 -top-32 h-96 w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(0,242,255,0.18),transparent_68%)] blur-2xl"></div>
+		<div class="absolute -bottom-40 -right-32 size-112 rounded-full bg-[radial-gradient(circle,rgba(138,43,226,0.16),transparent_70%)] blur-2xl"></div>
 	</div>
 
 	<Header />
 
 	<main class="container-frame pb-16 pt-8 md:pt-10">
-		<HeroSection />
+		<div class="animate-on-scroll">
+			<HeroSection />
+		</div>
 
 		<div class="scanner-line my-10 md:my-14"></div>
 
-		<AboutSection />
+		<div class="animate-on-scroll">
+			<AboutSection />
+		</div>
 
 		<div class="scanner-line my-10 md:my-14"></div>
 
-		<ProjectsSection />
+		<div class="animate-on-scroll">
+			<ExperienceSection />
+		</div>
 
 		<div class="scanner-line my-10 md:my-14"></div>
 
-		<TechnologiesSection />
+		<div class="animate-on-scroll">
+			<ProjectsSection />
+		</div>
+
+		<div class="scanner-line my-10 md:my-14"></div>
+
+		<div class="animate-on-scroll">
+			<TechnologiesSection />
+		</div>
 	</main>
 
 	<Footer />

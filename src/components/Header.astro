@@ -1,32 +1,76 @@
 ---
 import { cv, sectionLinks } from '../data/portfolio';
+import SunIcon from '../assets/icons/SunIcon.astro';
+import MoonIcon from '../assets/icons/MoonIcon.astro';
+
+const experienceLink = { href: '#experiencia', label: 'Experiencia profesional' };
+const allLinks = [experienceLink, ...sectionLinks];
 ---
 
 <header class="sticky top-4 z-50 px-4 pt-4">
 	<div class="container-frame glass-panel rounded-[18px]">
-		<nav class="flex flex-wrap items-center justify-center gap-4 px-4 py-3 md:justify-between md:px-6">
-			<a href="#inicio" class="focus-ring font-display text-lg font-extrabold tracking-[-0.08em] text-[#e1fdff]">
+		<nav class="flex items-center justify-between gap-4 px-4 py-3 md:px-6">
+			<a href="#inicio" class="focus-ring font-display text-lg font-extrabold tracking-[-0.08em] text-[#e1fdff] shrink-0">
 				AL.DEV
 			</a>
-			<div class="flex flex-wrap items-center justify-center gap-0 text-sm text-(--text-muted) md:gap-3">
+			<div class="flex items-center justify-center gap-2 md:gap-4 flex-1">
 				{
-					sectionLinks.map((link) => (
+					allLinks.map((link) => (
 						<a
 							href={link.href}
-							class="focus-ring rounded-full px-2 py-2 transition duration-300 hover:bg-white/5 hover:text-white md:px-3"
+							class="nav-link focus-ring rounded-full px-2 py-2 text-sm transition duration-300 hover:bg-white/5 hover:text-white md:px-3"
 						>
 							{link.label}
 						</a>
 					))
 				}
 			</div>
-			<a
-				href={cv.href}
-				download={cv.downloadName}
-				class="focus-ring rounded-[10px] border border-[rgba(0,242,255,0.24)] bg-[rgba(0,242,255,0.14)] px-4 py-2 font-mono text-xs uppercase tracking-[0.2em] text-[#e1fdff] transition duration-300 hover:shadow-[0_0_24px_rgba(0,242,255,0.22)]"
-			>
-				Descargar CV
-			</a>
+			<div class="flex items-center gap-2 shrink-0">
+				<button
+					id="theme-toggle"
+					aria-label="Alternar tema claro/oscuro"
+					class="focus-ring flex h-9 w-9 items-center justify-center rounded-[10px] border border-white/10 bg-white/5 transition duration-300 hover:border-white/20 hover:bg-white/10"
+				>
+					<SunIcon class="sun-icon h-4 w-4 hidden" />
+					<MoonIcon class="moon-icon h-4 w-4" />
+				</button>
+				<a
+					href={cv.href}
+					download={cv.downloadName}
+					class="focus-ring rounded-[10px] border border-[rgba(0,242,255,0.24)] bg-[rgba(0,242,255,0.14)] px-3 py-2 font-mono text-xs uppercase tracking-[0.2em] text-[#e1fdff] transition duration-300 hover:shadow-[0_0_24px_rgba(0,242,255,0.22)]"
+				>
+					Descargar CV
+				</a>
+			</div>
 		</nav>
 	</div>
 </header>
+
+<script>
+	const themeToggle = document.getElementById('theme-toggle');
+	const html = document.documentElement;
+
+	// Check localStorage or default to dark
+	const currentTheme = localStorage.getItem('portfolio-theme') || 'dark';
+	html.classList.toggle('light', currentTheme === 'light');
+
+	// Icon toggle using data attribute
+	const sunIcon = document.querySelector('#theme-toggle .sun-icon');
+	const moonIcon = document.querySelector('#theme-toggle .moon-icon');
+
+	function updateIcons(isLight: boolean) {
+		if (sunIcon && moonIcon) {
+			sunIcon.classList.toggle('hidden', !isLight);
+			moonIcon.classList.toggle('hidden', isLight);
+		}
+	}
+
+	// Initial state
+	updateIcons(html.classList.contains('light'));
+
+	themeToggle?.addEventListener('click', () => {
+		const isLight = html.classList.toggle('light');
+		localStorage.setItem('portfolio-theme', isLight ? 'light' : 'dark');
+		updateIcons(isLight);
+	});
+</script>

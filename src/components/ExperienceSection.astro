@@ -1,0 +1,43 @@
+---
+import { experience } from '../data/portfolio';
+---
+
+<section id="experiencia">
+	<div class="container-frame">
+		<!-- Section kicker with scanner animation -->
+		<div class="section-kicker mb-12 stagger-1">
+			<span class="text-sm font-mono opacity-60">02 /</span>
+			<span class="text-sm font-mono ml-2">EXPERIENCIA PROFESIONAL</span>
+		</div>
+
+		<!-- Timeline -->
+		<div class="relative pl-8 md:pl-12">
+			<!-- Vertical line -->
+			<div class="absolute left-3 md:left-4 top-0 bottom-0 w-px bg-linear-to-b from-cyan-500/50 via-violet-500/30 to-transparent"></div>
+
+			<!-- Experience card -->
+			<div class="stagger-2">
+				<!-- Timeline dot -->
+				<div class="absolute left-0 md:left-1 top-4 w-6 h-6 rounded-full border-2 border-cyan-400 bg-(--background)"></div>
+
+				<!-- Card content -->
+				<div class="glass-panel p-6 md:p-8 rounded-[24px]">
+					<div class="flex flex-col gap-2 mb-4">
+						<span class="font-mono text-xs uppercase tracking-[0.2em] text-(--text-soft)">{experience[0].period}</span>
+						<h3 class="font-display text-2xl font-bold tracking-[-0.04em] text-(--text)">{experience[0].company}</h3>
+						<p class="font-medium text-(--text-muted)">{experience[0].role}</p>
+					</div>
+
+					<ul class="flex flex-col gap-3 mt-6">
+						{experience[0].description.map((item) => (
+							<li class="flex items-start gap-3 text-sm leading-6 text-(--text-muted)">
+								<span class="mt-2 h-1.5 w-1.5 rounded-full bg-cyan-500/70 shrink-0"></span>
+								<span>{item}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -194,3 +194,156 @@ The design system uses a **"Soft-Geometric"** shape language.
 
 ### Data Visualizers (Unique Component)
 - For showing "Skills" or "Stats", use thin progress bars with a glow-cap (a 4px circle at the end of the progress line that has a high-intensity glow).
+
+---
+
+## Light Mode — Lumina Cyber-Professional
+
+This section extends the base design system for light mode presentation. It follows the same structural principles but shifts to a "laboratory-clean" aesthetic that replaces dark neon with clinical precision.
+
+### Brand & Style
+
+**Cyber-Minimalism**: A light-mode evolution that replaces emissive glows with pigment-rich depth. The emotional response is clarity, efficiency, and premium quality.
+
+Key visual drivers:
+- **Clinical Precision:** Hairline strokes and monospaced accents denote technical rigor.
+- **Translucent Depth:** Light-mode glassmorphism that feels like frosted acrylic rather than deep glass.
+- **Architectural Layout:** Rigorous adherence to grid lines and structural alignment.
+
+### Colors — Light Mode Palette
+
+The palette shifts from emissive glows to pigment-rich depth.
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `background` | `#f7f9fb` | Page background |
+| `surface` | `#f7f9fb` | Base surface |
+| `surface-dim` | `#d8dadc` | Muted/dimmer surface |
+| `surface-bright` | `#f7f9fb` | Bright surface |
+| `surface-container-lowest` | `#ffffff` | Cards, containers |
+| `surface-container-low` | `#f2f4f6` | Secondary containers |
+| `surface-container` | `#eceef0` | Tertiary containers |
+| `surface-container-high` | `#e6e8ea` | Quaternary containers |
+| `surface-container-highest` | `#e0e3e5` | Elevated containers |
+| `on-surface` | `#191c1e` | Primary text |
+| `on-surface-variant` | `#464555` | Secondary text |
+| `inverse-surface` | `#2d3133` | Inverted surfaces |
+| `inverse-on-surface` | `#eff1f3` | Text on inverted surface |
+| `outline` | `#777587` | Borders, dividers |
+| `outline-variant` | `#c7c4d8` | Subtle borders |
+| `primary` | `#3525cd` | Primary actions (Indigo) |
+| `primary-container` | `#4f46e5` | Primary container fill |
+| `on-primary` | `#ffffff` | Text on primary |
+| `on-primary-container` | `#dad7ff` | Text on primary container |
+| `inverse-primary` | `#c3c0ff` | Primary in inverted context |
+| `secondary` | `#712ae2` | Secondary accents (Violet) |
+| `secondary-container` | `#8a4cfc` | Secondary container fill |
+| `on-secondary` | `#ffffff` | Text on secondary |
+| `on-secondary-container` | `#fffbff` | Text on secondary container |
+| `tertiary` | `#00505f` | Tertiary accents (Cyan) |
+| `tertiary-container` | `#006a7c` | Tertiary container fill |
+| `on-tertiary` | `#ffffff` | Text on tertiary |
+| `on-tertiary-container` | `#93e8ff` | Text on tertiary container |
+
+**Key differences from dark mode:**
+- Primary shifts from Electric Cyan (#00f2ff) to Indigo (#3525cd)
+- Secondary remains Violet (#712ae2) for consistency
+- Tertiary becomes a teal-cyan (#00505f) for "cyber heritage" nod
+- Background is stark White (#ffffff) with Neutral-50 (#f7f9fb) secondary
+
+### Typography — Light Mode
+
+Same as base system with adjustments:
+- **Headlines:** Set with tight letter-spacing for "blocky" structural feel
+- **Labels:** Always uppercase in JetBrains Mono to mimic code comments
+- **Body:** Generous line-height (1.6) for readability against white
+
+| Style | Font | Size | Weight | Line Height |
+|-------|------|------|--------|-------------|
+| `display-lg` | Sora | 64px | 700 | 1.1 |
+| `display-lg-mobile` | Sora | 40px | 700 | 1.2 |
+| `headline-md` | Sora | 32px | 600 | 1.3 |
+| `headline-sm` | Sora | 24px | 600 | 1.4 |
+| `body-lg` | Sora | 18px | 400 | 1.6 |
+| `body-md` | Sora | 16px | 400 | 1.6 |
+| `label-mono` | JetBrains Mono | 12px | 500 | 1.0 |
+
+### Layout & Spacing
+
+Same as base system:
+- **Desktop:** 12-column grid, 24px gutters, 80px margins
+- **Tablet:** 8-column grid, 20px gutters
+- **Mobile:** 4-column grid, 20px margins
+- **Base unit:** 8px
+- **Container max:** 1280px
+
+### Elevation & Depth — Light Mode
+
+**Frosted Layering** instead of traditional shadows:
+- **Glass Effect:** `backdrop-filter: blur(12px)` with `rgba(255, 255, 255, 0.7)` fill
+- **Soft Depth:** `0 20px 40px rgba(79, 70, 229, 0.05)` — hint of primary color
+- **Structural Outlines:** 1px gradient borders (Neutral-200 to transparent) for light hitting sharp edge
+
+### Shapes
+
+Same as base system:
+- `radius-sm`: 0.125rem (2px)
+- `radius-md`: 0.25rem (4px) — standard
+- `radius-lg`: 0.375rem (6px) — interactive
+- `radius-xl`: 0.5rem (8px) — cards
+- `radius-full`: 9999px
+
+### Components — Light Mode
+
+#### Buttons
+- **Primary:** Solid Indigo fill (#3525cd), white text, slight lift on hover
+- **Secondary:** Frosted glass with 1px Indigo border
+- **Ghost:** Text only (Violet), subtle background reveal on hover
+
+#### Cards
+- Frosted glass background with `backdrop-filter: blur(12px)`
+- On hover: border shifts from Neutral-200 to Primary Indigo gradient
+
+#### Chips/Tags
+- Small, rectangular with light indigo background (#EEF2FF)
+- Indigo text, monospaced font
+
+#### Terminal Lists (Experience/Skills)
+- "01", "02" prefix in JetBrains Mono with tertiary cyan (#00505f)
+- Maintains technical narrative
+
+### CSS Implementation Reference
+
+```css
+:root.light {
+  --background: #f7f9fb;
+  --surface: #f7f9fb;
+  --surface-dim: #d8dadc;
+  --on-surface: #191c1e;
+  --on-surface-variant: #464555;
+  --outline: #777587;
+  --outline-variant: #c7c4d8;
+  --primary: #3525cd;
+  --primary-container: #4f46e5;
+  --on-primary: #ffffff;
+  --on-primary-container: #dad7ff;
+  --secondary: #712ae2;
+  --secondary-container: #8a4cfc;
+  --on-secondary: #ffffff;
+  --on-secondary-container: #fffbff;
+  --tertiary: #00505f;
+  --tertiary-container: #006a7c;
+  --on-tertiary: #ffffff;
+  --on-tertiary-container: #93e8ff;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f2f4f6;
+  --surface-container: #eceef0;
+}
+
+:root.light .glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.05);
+  backdrop-filter: blur(12px);
+}
+```

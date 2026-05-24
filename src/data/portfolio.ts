@@ -77,16 +77,36 @@ export const socialLinks: SocialLink[] = [
 	}
 ];
 
+export const experience: {
+	company: string;
+	role: string;
+	period: string;
+	description: string[];
+}[] = [
+	{
+		company: 'MyIntelli',
+		role: 'Frontend Developer',
+		period: 'Oct 2025 – Actual',
+		description: [
+			'Desarrollé desde cero una aplicación para gestión de turnos y horarios, reemplazando un sistema legacy',
+			'Implementé arquitectura de microfrontends para migración progresiva',
+			'Construí interfaces reutilizables con React, TypeScript, Tailwind CSS, Zustand y React Router',
+			'Mejoré performance con code splitting y lazy loading',
+			'Trabajé bajo metodología Scrum (dailies, sprints, Kanban)'
+		]
+	}
+];
+
 export const heroHighlights = [
 	'Interfaces modernas con foco en claridad visual y rendimiento.',
 	'Código limpio y escalable para productos web.',
-	'Estudiante avanzado de Sistemas de Información en UADER.'
+	'+1 año de experiencia profesional'
 ];
 
 export const profile = {
 	name: 'Axel Larrea',
 	role: 'Desarrollador Web',
-	kicker: 'Portfolio Personal / Desarrollador Web',
+	kicker: 'Desarrollador Frontend',
 	headline: 'Construyo experiencias web precisas y modernas.',
 	intro: 'Me enfoco en interfaces funcionales, código limpio y productos digitales que se sienten sólidos, rápidos y pensados para durar.',
 	image: profileImage
@@ -98,14 +118,15 @@ export const cv = {
 };
 
 export const aboutContent = {
-	title: 'Funcionalidad, criterio visual y aprendizaje continuo.',
+	title: 'Sobre mí',
 	lead: 'Trabajo desde una mirada técnica y de producto: cada sección debe comunicar, rendir bien y resolver una necesidad real.',
 	paragraphs: [
-		'Soy Axel Larrea, desarrollador web con una fuerte curiosidad por las tecnologías web y por cómo diseñar interfaces que se sientan modernas, claras y útiles. Me interesa combinar una estética cuidada con decisiones técnicas sólidas para construir experiencias confiables.',
-		'Me apasionan el diseño funcional, el código limpio y la arquitectura que escala sin perder claridad. Disfruto investigar, iterar y mejorar cada detalle, desde la estructura de componentes hasta la percepción visual del producto.',
-		'Actualmente curso la etapa final de la Licenciatura en Sistemas de Información en UADER, integrando la formación académica con práctica constante en desarrollo web.'
+		'Desarrollador Frontend con experiencia construyendo aplicaciones web modernas con React y TypeScript.',
+		'Participo activamente en la migración de sistemas legacy hacia arquitecturas basadas en microfrontends.',
+		'Me enfoco en desarrollar productos bien pensados, con foco en rendimiento y experiencia de usuario.',
+		'Disfruto resolver problemas reales y seguir creciendo técnicamente en equipos colaborativos.'
 	],
-	pills: ['UADER / Sistemas de Información', 'Frontend + Backend']
+	pills: ['MyIntelli / Frontend Developer', 'React + TypeScript']
 };
 
 export const projects: ProjectItemData[] = [

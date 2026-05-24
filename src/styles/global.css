@@ -8,6 +8,32 @@
   --background: #131313;
   --surface: rgba(255, 255, 255, 0.03);
   --surface-strong: rgba(255, 255, 255, 0.05);
+  --surface-dim: #1c1b1b;
+  --surface-bright: #3a3939;
+  --surface-container-lowest: #0e0e0e;
+  --surface-container-low: #1c1b1b;
+  --surface-container: #201f1f;
+  --surface-container-high: #2a2a2a;
+  --surface-container-highest: #353534;
+  --on-surface: #e5e2e1;
+  --on-surface-variant: #b9cacb;
+  --inverse-surface: #e5e2e1;
+  --inverse-on-surface: #313030;
+  --outline: #849495;
+  --outline-variant: #3a494b;
+  --primary: #00f2ff;
+  --primary-container: #006a71;
+  --on-primary: #00363a;
+  --on-primary-container: #e1fdff;
+  --inverse-primary: #00696f;
+  --secondary: #dcb8ff;
+  --secondary-container: #7701d0;
+  --on-secondary: #480081;
+  --on-secondary-container: #dcb7ff;
+  --tertiary: #f7f8f8;
+  --tertiary-container: #dbdbdb;
+  --on-tertiary: #2f3131;
+  --on-tertiary-container: #5e6060;
   --surface-border: rgba(255, 255, 255, 0.1);
   --surface-border-soft: rgba(132, 148, 149, 0.2);
   --text: #e5e2e1;
@@ -164,4 +190,567 @@ img {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Scroll-triggered animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays — only during entrance animation */
+.animate-on-scroll:not(.is-visible) .stagger-1 { transition-delay: 100ms; }
+.animate-on-scroll:not(.is-visible) .stagger-2 { transition-delay: 200ms; }
+.animate-on-scroll:not(.is-visible) .stagger-3 { transition-delay: 300ms; }
+.animate-on-scroll:not(.is-visible) .stagger-4 { transition-delay: 400ms; }
+
+/* Scanner line animation */
+@keyframes scanner-sweep {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+[data-scanner] {
+  position: relative;
+  display: inline-block;
+}
+
+[data-scanner]::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0, 242, 255, 0.8), rgba(138, 43, 226, 0.6));
+  animation: scanner-sweep 400ms ease-out forwards;
+  transform: translateY(-50%);
+}
+
+/* Light mode — Lumina Cyber-Professional (DESIGN_LIGHT) */
+:root.light {
+  --background: #f7f9fb;
+  --surface: #f7f9fb;
+  --surface-dim: #d8dadc;
+  --surface-bright: #f7f9fb;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f2f4f6;
+  --surface-container: #eceef0;
+  --surface-container-high: #e6e8ea;
+  --surface-container-highest: #e0e3e5;
+  --on-surface: #191c1e;
+  --on-surface-variant: #464555;
+  --inverse-surface: #2d3133;
+  --inverse-on-surface: #eff1f3;
+  --outline: #777587;
+  --outline-variant: #c7c4d8;
+  --primary: #3525cd;
+  --primary-container: #4f46e5;
+  --on-primary: #ffffff;
+  --on-primary-container: #dad7ff;
+  --inverse-primary: #c3c0ff;
+  --secondary: #712ae2;
+  --secondary-container: #8a4cfc;
+  --on-secondary: #ffffff;
+  --on-secondary-container: #fffbff;
+  --tertiary: #00505f;
+  --tertiary-container: #006a7c;
+  --on-tertiary: #ffffff;
+  --on-tertiary-container: #93e8ff;
+  /* Aliases for existing class usage */
+  --text: #191c1e;
+  --text-muted: #464555;
+  --text-soft: #777587;
+  --surface-border: #e2e8f0;
+  --surface-border-soft: #c7c4d8;
+  --cyan: #00505f;
+  --cyan-soft: rgba(0, 80, 95, 0.16);
+  --violet: #712ae2;
+  --violet-soft: rgba(113, 42, 226, 0.16);
+}
+
+:root.light body {
+  background:
+    radial-gradient(circle at top left, rgba(79, 70, 229, 0.08), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(113, 42, 226, 0.08), transparent 30%),
+    linear-gradient(180deg, #f7f9fb 0%, #f1f5f9 45%, #f7f9fb 100%);
+  color: var(--on-surface);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+:root.light .glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--surface-border);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.8) inset,
+    0 20px 40px rgba(79, 70, 229, 0.05);
+  backdrop-filter: blur(12px);
+}
+
+:root.light .page-shell::before {
+  background-image:
+    linear-gradient(rgba(25, 28, 30, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25, 28, 30, 0.03) 1px, transparent 1px);
+}
+
+:root.light .page-shell::after {
+  opacity: 0.04;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(53, 37, 205, 0.4) 0 1px, transparent 1px),
+    radial-gradient(circle at 80% 40%, rgba(113, 42, 226, 0.3) 0 1px, transparent 1px);
+}
+
+:root.light [data-scanner]::before {
+  background: linear-gradient(90deg, rgba(53, 37, 205, 0.8), rgba(113, 42, 226, 0.6));
+}
+
+:root.light .section-kicker {
+  color: var(--tertiary);
+}
+
+:root.light .scanner-line {
+  background: linear-gradient(90deg, transparent, rgba(0, 80, 95, 0.5), transparent);
+}
+
+/* Light mode header */
+:root.light header a[href="#inicio"] {
+  color: var(--on-surface);
+}
+
+:root.light header .nav-link {
+  color: var(--on-surface-variant);
+}
+
+:root.light header .nav-link:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--on-surface);
+}
+
+:root.light #theme-toggle {
+  border-color: var(--outline-variant);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+:root.light #theme-toggle:hover {
+  border-color: var(--outline);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+:root.light header a[download] {
+  border-color: var(--primary);
+  background: var(--primary-container);
+  color: var(--on-primary);
+}
+
+:root.light header a[download]:hover {
+  background: var(--primary);
+}
+
+/* Theme toggle icons */
+:root.light #theme-toggle .moon-icon {
+  color: var(--on-surface);
+}
+
+:root #theme-toggle .sun-icon {
+  color: var(--on-surface);
+}
+
+/* Light mode selection */
+:root.light ::selection {
+  background: rgba(79, 70, 229, 0.24);
+  color: var(--on-primary);
+}
+
+/* Light mode focus ring */
+:root.light .focus-ring:focus-visible {
+  outline-color: var(--primary);
+}
+
+/* ============================================
+   LIGHT MODE — COMPONENT OVERRIDES
+   ============================================ */
+
+/* Glass panel in light mode */
+:root.light .glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: var(--outline-variant);
+}
+
+/* Hero section */
+:root.light #inicio {
+  border-color: var(--outline-variant);
+}
+
+:root.light #inicio .section-kicker {
+  color: var(--tertiary);
+}
+
+:root.light #inicio h1 {
+  color: var(--on-surface);
+}
+
+:root.light #inicio h1 span {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:root.light #inicio .border-white\/10 {
+  border-color: var(--outline-variant);
+}
+
+:root.light #inicio .bg-black\/20 {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+:root.light #inicio .text-white {
+  color: var(--on-surface);
+}
+
+/* Social links in Hero */
+:root.light .social-link-cyan,
+:root.light .social-link-violet,
+:root.light .social-link-neutral {
+  background: rgba(0, 0, 0, 0.03);
+}
+:root.light .social-link-cyan {
+  border-color: color-mix(in srgb, var(--cyan) 25%, transparent);
+}
+:root.light .social-link-violet {
+  border-color: color-mix(in srgb, var(--violet) 25%, transparent);
+}
+:root.light .social-link-neutral {
+  border-color: var(--outline-variant);
+}
+
+/* Hero highlights (stats boxes) */
+:root.light .hero-highlight {
+  border-color: var(--outline-variant);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* About section */
+:root.light #sobre-mi h2,
+:root.light #sobre-mi h3 {
+  color: var(--on-surface);
+}
+
+:root.light #sobre-mi .border-white\/10 {
+  border-color: var(--outline-variant);
+}
+
+:root.light #sobre-mi .bg-white\/3 {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+:root.light #sobre-mi .bg-white\/4 {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+:root.light #sobre-mi .bg-white\/5 {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+:root.light #sobre-mi .text-\(--text-muted\) {
+  color: var(--on-surface-variant);
+}
+
+:root.light #sobre-mi .text-\(--text-soft\) {
+  color: var(--outline);
+}
+
+/* About pills */
+:root.light .about-pill-cyan {
+  border-color: var(--primary) !important;
+  background: rgba(79, 70, 229, 0.1) !important;
+  color: var(--primary) !important;
+}
+
+:root.light .about-pill-neutral {
+  border-color: var(--outline-variant);
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--on-surface-variant);
+}
+
+/* Projects section */
+:root.light #proyectos article {
+  border-color: var(--outline-variant);
+}
+
+:root.light #proyectos article h3 {
+  color: var(--on-surface);
+}
+
+:root.light #proyectos article .border-white\/10 {
+  border-color: var(--outline-variant);
+}
+
+:root.light #proyectos article .bg-white\/3 {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+:root.light #proyectos article .bg-white\/4 {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+:root.light #proyectos article .text-white {
+  color: var(--on-surface);
+}
+
+:root.light #proyectos article .hover\:border-\[rgba\(0\2c 242\2c 255\2c 0\.26\)\] {
+  border-color: var(--primary);
+}
+
+:root.light #proyectos article .hover\:border-\[rgba\(138\2c 43\2c 226\2c 0\.28\)\] {
+  border-color: var(--secondary);
+}
+
+:root.light #proyectos .from-\[\#131313\] {
+  from: rgba(255, 255, 255, 0.9);
+}
+
+/* Project stack pills */
+:root.light .stack-pill {
+  border-color: var(--outline-variant);
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--on-surface-variant);
+}
+
+/* Tech pills */
+:root.light .tech-pill {
+  border-color: var(--outline-variant);
+  color: var(--on-surface);
+}
+
+:root.light .tech-pill:hover {
+  border-color: var(--primary);
+}
+
+/* Technologies section */
+:root.light #tecnologias .glass-panel {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: var(--outline-variant);
+}
+
+/* Experience section */
+:root.light #experiencia {
+  /* Card styling handled by glass-panel */
+}
+
+:root.light #experiencia .glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: var(--outline-variant);
+}
+
+:root.light #experiencia h3 {
+  color: var(--on-surface);
+}
+
+:root.light #experiencia .border-white\/10 {
+  border-color: var(--outline-variant);
+}
+
+/* Contact section */
+:root.light #contact {
+  color: var(--on-surface);
+}
+
+:root.light #contact .border-gray-800 {
+  border-color: var(--outline-variant);
+}
+
+:root.light #contact .text-gray-300 {
+  color: var(--on-surface-variant);
+}
+
+:root.light #contact .hover\:border-gray-700 {
+  border-color: var(--outline);
+}
+
+:root.light #contact button,
+:root.light #contact a {
+  color: var(--on-surface-variant);
+}
+
+:root.light #contact button:hover,
+:root.light #contact a:hover {
+  color: var(--on-surface);
+}
+
+/* Footer */
+:root.light footer {
+  border-color: var(--outline-variant);
+}
+:root.light .footer-container {
+  border-color: var(--outline-variant);
+  background: rgba(255, 255, 255, 0.5);
+}
+:root.light .footer-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: var(--outline-variant);
+}
+
+:root.light footer .text-\(--text-soft\) {
+  color: var(--outline);
+}
+
+:root.light footer .text-\(--text-muted\) {
+  color: var(--on-surface-variant);
+}
+
+:root.light footer a {
+  color: var(--on-surface-variant);
+}
+
+:root.light footer a:hover {
+  color: var(--on-surface);
+}
+
+/* Global text color fixes for light mode */
+:root.light .text-white {
+  color: var(--on-surface);
+}
+
+:root.light .text-\(--text-muted\) {
+  color: var(--on-surface-variant);
+}
+
+:root.light .text-\(--text-soft\) {
+  color: var(--outline);
+}
+
+/* Border color fixes */
+:root.light .border-white\/10 {
+  border-color: var(--outline-variant);
+}
+
+:root.light .border-white\/8 {
+  border-color: var(--outline-variant);
+}
+
+:root.light .border-white\/5 {
+  border-color: var(--outline-variant);
+}
+
+:root.light .border-white\/3 {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Background fixes */
+:root.light .bg-white\/3 {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+:root.light .bg-white\/4 {
+  background: rgba(0, 0, 0, 0.07);
+}
+
+:root.light .bg-white\/5 {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Icon color fixes */
+:root.light .icon-white {
+  color: var(--on-surface);
+}
+
+/* Gradient text in light mode */
+:root.light .gradient-text {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Badge override */
+:root.light .badge {
+  border-color: var(--primary);
+  background: rgba(79, 70, 229, 0.1);
+  color: var(--primary);
+}
+
+/* === Technologies logo bg (light mode) === */
+:root.light #tecnologias .bg-black\/20 {
+  background: rgba(0, 0, 0, 0.06);
+}
+:root.light #tecnologias .border-white\/10 {
+  border-color: var(--outline-variant);
+}
+
+/* === Contact section light mode overrides === */
+:root.light #contact [class*="border-gray-800"] {
+  border-color: var(--outline);
+}
+:root.light #contact [class*="text-gray-300"] {
+  color: var(--text-muted);
+}
+:root.light #contact [class*="text-gray-400"] {
+  color: var(--text-muted);
+}
+
+/* === Footer text hover light mode === */
+:root.light footer .hover\:text-white:hover {
+  color: var(--text);
+}
+
+/* === Dark mode social link cards === */
+.social-link-cyan,
+.social-link-violet,
+.social-link-neutral {
+  background: rgba(255, 255, 255, 0.04);
+}
+.social-link-cyan {
+  border-color: color-mix(in srgb, var(--cyan) 20%, transparent);
+}
+.social-link-violet {
+  border-color: color-mix(in srgb, var(--violet) 20%, transparent);
+}
+.social-link-neutral {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Neon halo on hover */
+.social-link-cyan:hover {
+  box-shadow: 0 0 12px color-mix(in srgb, var(--cyan) 25%, transparent),
+              0 0 30px var(--cyan-soft),
+              0 0 60px var(--cyan-soft);
+  border-color: var(--cyan);
+}
+.social-link-violet:hover {
+  box-shadow: 0 0 12px color-mix(in srgb, var(--violet) 30%, transparent),
+              0 0 35px var(--violet-soft),
+              0 0 65px var(--violet-soft);
+  border-color: var(--violet);
+}
+.social-link-neutral:hover {
+  box-shadow: 0 0 20px var(--outline-variant), 0 0 40px var(--outline-variant);
+}
+
+/* Light mode hover — soft shadow instead of neon glow */
+:root.light .social-link-cyan:hover {
+  box-shadow: 0 4px 18px rgba(0, 80, 95, 0.12),
+              0 0 0 1px var(--cyan-soft);
+  border-color: var(--cyan);
+}
+:root.light .social-link-violet:hover {
+  box-shadow: 0 4px 18px rgba(113, 42, 226, 0.12),
+              0 0 0 1px var(--violet-soft);
+  border-color: var(--violet);
+}
+:root.light .social-link-neutral:hover {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+  border-color: var(--outline);
+}
+
+/* Smooth transition for hover effects */
+.social-link-cyan,
+.social-link-violet,
+.social-link-neutral {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }

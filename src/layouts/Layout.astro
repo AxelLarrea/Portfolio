@@ -32,5 +32,22 @@ const {
 		<div class="page-shell">
 			<slot />
 		</div>
+
+		<script>
+			// Intersection Observer for scroll animations
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						entry.target.classList.toggle('is-visible', entry.isIntersecting);
+					});
+				},
+				{ threshold: 0.2 }
+			);
+
+			// Observe all elements with .animate-on-scroll
+			document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+				observer.observe(el);
+			});
+		</script>
 	</body>
 </html>
