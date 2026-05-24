@@ -10,7 +10,7 @@ const allLinks = [experienceLink, ...sectionLinks];
 <header class="sticky top-4 z-50 px-4 pt-4">
 	<div class="container-frame glass-panel rounded-[18px]">
 		<nav class="flex items-center justify-between gap-4 px-4 py-2 md:px-6">
-			<a href="#inicio" class="focus-ring font-display text-lg font-extrabold tracking-[-0.08em] text-(--on-primary-container) shrink-0">
+			<a href="#inicio" class="focus-ring font-display text-lg font-extrabold tracking-tight text-(--text) shrink-0">
 				AL.DEV
 			</a>
 			<div class="flex items-center justify-center gap-2 md:gap-4 flex-1">
@@ -18,7 +18,7 @@ const allLinks = [experienceLink, ...sectionLinks];
 					allLinks.map((link) => (
 						<a
 							href={link.href}
-							class="nav-link focus-ring inline-flex items-center rounded-full px-3 py-1 text-sm h-9 transition duration-300 hover:bg-white/5 hover:text-(--text) md:px-3"
+							class="nav-link focus-ring inline-flex items-center rounded-full px-3 py-1 text-sm h-9 transition duration-300 text-(--text-muted) hover:bg-white/5 hover:text-(--text) md:px-3"
 						>
 							{link.label}
 						</a>
@@ -29,7 +29,7 @@ const allLinks = [experienceLink, ...sectionLinks];
 				<button
 					id="theme-toggle"
 					aria-label="Alternar tema claro/oscuro"
-					class="focus-ring flex h-9 w-9 items-center justify-center rounded-[10px] border border-white/10 bg-white/5 transition duration-300 hover:border-white/20 hover:bg-white/10"
+					class="focus-ring flex h-9 w-9 items-center justify-center rounded-[10px] border border-(--border) bg-white/5 transition duration-300 hover:border-(--border-strong) hover:bg-white/10"
 				>
 					<SunIcon class="sun-icon h-4 w-4 hidden" />
 					<MoonIcon class="moon-icon h-4 w-4" />

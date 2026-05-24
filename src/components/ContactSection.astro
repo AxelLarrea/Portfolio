@@ -8,7 +8,7 @@ import { cv, socialLinks } from '../data/portfolio';
 
 <section id="contacto" class="mt-20 md:mt-24">
 	<div class="mb-8">
-		<div class="h-1 w-16 bg-(--tertiary) rounded-full mb-6"></div>
+		<div class="h-1 w-16 bg-(--secondary) rounded-full mb-6"></div>
 		<h2 class="font-display text-3xl font-bold tracking-[-0.04em] text-(--text) md:text-4xl">
 			Contacto
 		</h2>
@@ -20,16 +20,14 @@ import { cv, socialLinks } from '../data/portfolio';
 	<div class="glass-panel rounded-[24px] px-6 py-8 md:px-10 md:py-10">
 		<!-- Email row -->
 		<div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-			<div class="flex items-center gap-3 min-w-0">
-				<span class="font-mono text-sm text-(--text) truncate">
-					axel.larrea.9@gmail.com
-				</span>
-			</div>
-			<div class="flex items-center gap-2 shrink-0">
+			<span class="font-mono text-sm text-(--text) truncate">
+				axel.larrea.9@gmail.com
+			</span>
+			<div class="flex gap-2 shrink-0">
 				<button
 					id="copy-email"
 					aria-label="Copiar email al portapapeles"
-					class="focus-ring flex items-center gap-2 rounded-[10px] border border-(--surface-border) bg-white/3 px-4 py-2 text-sm text-(--text-muted) transition duration-300 hover:border-(--primary) hover:text-(--primary)"
+					class="focus-ring flex items-center gap-2 rounded-[10px] border border-(--border) bg-white/3 px-4 py-2 text-sm text-(--text-muted) transition duration-300 hover:border-(--primary) hover:text-(--primary)"
 				>
 					<CopyIcon class="h-4 w-4" />
 					<span class="hidden sm:inline">Copiar</span>
@@ -37,7 +35,7 @@ import { cv, socialLinks } from '../data/portfolio';
 				<a
 					href="mailto:axel.larrea.9@gmail.com"
 					aria-label="Enviar email"
-					class="focus-ring flex items-center gap-2 rounded-[10px] border border-(--surface-border) bg-white/3 px-4 py-2 text-sm text-(--text-muted) transition duration-300 hover:border-(--primary) hover:text-(--primary)"
+					class="focus-ring flex items-center gap-2 rounded-[10px] border border-(--border) bg-white/3 px-4 py-2 text-sm text-(--text-muted) transition duration-300 hover:border-(--primary) hover:text-(--primary)"
 				>
 					<SendIcon class="h-4 w-4" />
 					<span class="hidden sm:inline">Enviar</span>
@@ -50,7 +48,7 @@ import { cv, socialLinks } from '../data/portfolio';
 
 		<!-- Social links + CV -->
 		<div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-			<div class="flex items-center gap-4">
+			<div class="flex gap-4">
 				{
 					socialLinks.filter((l) => l.icon !== 'email').map((link) => (
 						<a
@@ -87,7 +85,6 @@ import { cv, socialLinks } from '../data/portfolio';
 			copyBtn.dataset.copied = 'true';
 			const span = copyBtn.querySelector('span');
 			if (span) span.textContent = 'Copiado';
-			// Reset on next click anywhere outside
 			const reset = (e: MouseEvent) => {
 				if (!copyBtn.contains(e.target as Node)) {
 					delete copyBtn.dataset.copied;

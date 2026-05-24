@@ -15,16 +15,19 @@ const socialIcons = {
 
 <section
 	id="inicio"
-	class="glass-panel relative overflow-hidden rounded-[28px] border border-white/10 px-6 py-10 md:px-10 md:py-16"
+	class="glass-panel relative overflow-hidden rounded-[28px] border border-(--border) px-6 py-10 md:px-10 md:py-16"
 >
-	<div class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[rgba(0,242,255,0.5)] to-transparent"></div>
+	<div class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-(--primary-dim) to-transparent"></div>
 	<div class="absolute inset-y-0 left-0 w-px bg-linear-to-b from-transparent via-white/10 to-transparent"></div>
 	<div class="absolute inset-y-0 right-0 w-px bg-linear-to-b from-transparent via-white/10 to-transparent"></div>
 
 	<div class="mx-auto flex max-w-4xl flex-col items-center text-center">
 		<div class="relative mb-8">
-			<div class="absolute inset-[-18px] rounded-[26px] bg-[radial-gradient(circle,rgba(0,242,255,0.2),transparent_72%)] blur-xl"></div>
-			<div class="relative rounded-[26px] border border-[rgba(0,242,255,0.45)] bg-[linear-gradient(180deg,rgba(0,242,255,0.14),rgba(138,43,226,0.12))] p-[6px] shadow-[0_0_32px_rgba(0,242,255,0.16)]">
+			<div
+				class="absolute inset-[-18px] rounded-[26px] blur-xl"
+				style="background: radial-gradient(circle, color-mix(in srgb, var(--primary) 20%, transparent), transparent 72%)"
+			></div>
+			<div class="relative rounded-[26px] border border-(--primary)/45 bg-linear-to-b from-(--primary)/14 to-(--secondary)/12 p-[6px] shadow-[0_0_32px_var(--primary-glow)]">
 				<Image
 					src={profile.image}
 					alt={`Foto de perfil de ${profile.name}`}
@@ -35,7 +38,7 @@ const socialIcons = {
 					class="h-[180px] w-[180px] rounded-[22px] border border-white/10 object-cover md:h-[220px] md:w-[220px]"
 				/>
 			</div>
-			<div class="absolute bottom-3 right-3 h-4 w-4 rounded-full border-2 border-(--background) bg-(--primary) shadow-[0_0_14px_rgba(0,242,255,0.85)]"></div>
+			<div class="absolute bottom-3 right-3 h-4 w-4 rounded-full border-2 border-(--base) bg-(--success) shadow-[0_0_14px_var(--success)]"></div>
 		</div>
 
 		<p class="section-kicker mb-4">{profile.kicker}</p>
@@ -88,7 +91,7 @@ const socialIcons = {
 		<div class="mt-10 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
 			{
 				heroHighlights.map((item, index) => (
-					<div class="hero-highlight rounded-[18px] border border-white/8 bg-black/18 px-4 py-4 text-left">
+					<div class="hero-highlight text-left">
 						<p class="font-mono text-[11px] uppercase tracking-[0.28em] text-(--text-soft)">
 							0{index + 1}
 						</p>

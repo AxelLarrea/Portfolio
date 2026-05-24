@@ -4,26 +4,25 @@ import { experience } from '../data/portfolio';
 
 <section id="experiencia">
 	<div class="container-frame">
-		<h2 class="font-display text-2xl font-bold tracking-[-0.04em] text-(--primary) mb-8 stagger-1 md:text-3xl">
+		<h2 class="stagger-1 mb-8 font-display text-2xl font-bold tracking-[-0.04em] text-(--primary) md:text-3xl">
 			Experiencia profesional
 		</h2>
 
 		<div class="stagger-2">
 			<div class="glass-panel overflow-hidden rounded-[24px]">
-				<!-- Accent bar at top -->
-				<div class="h-1 bg-linear-to-r from-cyan-500/60 via-violet-500/40 to-transparent"></div>
+				<div class="h-1 bg-linear-to-r from-(--primary)/60 via-(--secondary)/40 to-transparent"></div>
 
 				<div class="p-6 md:p-8">
-					<div class="flex flex-col gap-2 mb-4">
+					<div class="mb-4 flex flex-col gap-2">
 						<span class="font-mono text-xs uppercase tracking-[0.2em] text-(--text-soft)">{experience[0].period}</span>
 						<h3 class="font-display text-2xl font-bold tracking-[-0.04em] text-(--text)">{experience[0].company}</h3>
 						<p class="font-medium text-(--text-muted)">{experience[0].role}</p>
 					</div>
 
-					<ul class="flex flex-col gap-3 mt-6">
+					<ul class="mt-6 flex flex-col gap-3">
 						{experience[0].description.map((item) => (
 							<li class="flex items-start gap-3 text-sm leading-6 text-(--text-muted)">
-								<span class="mt-2 h-1.5 w-1.5 rounded-full bg-cyan-500/70 shrink-0"></span>
+								<span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-(--primary)/70"></span>
 								<span>{item}</span>
 							</li>
 						))}

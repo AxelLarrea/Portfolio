@@ -1,107 +1,66 @@
 ---
-name: Cyber-Professional Portfolio
+name: Nebula Professional
+version: 2.0.0
 colors:
-  surface: '#131313'
-  surface-dim: '#131313'
-  surface-bright: '#3a3939'
-  surface-container-lowest: '#0e0e0e'
-  surface-container-low: '#1c1b1b'
-  surface-container: '#201f1f'
-  surface-container-high: '#2a2a2a'
-  surface-container-highest: '#353534'
-  on-surface: '#e5e2e1'
-  on-surface-variant: '#b9cacb'
-  inverse-surface: '#e5e2e1'
-  inverse-on-surface: '#313030'
-  outline: '#849495'
-  outline-variant: '#3a494b'
-  surface-tint: '#00dbe7'
-  primary: '#e1fdff'
-  on-primary: '#00363a'
-  primary-container: '#00f2ff'
-  on-primary-container: '#006a71'
-  inverse-primary: '#00696f'
-  secondary: '#dcb8ff'
-  on-secondary: '#480081'
-  secondary-container: '#7701d0'
-  on-secondary-container: '#dcb7ff'
-  tertiary: '#f7f8f8'
-  on-tertiary: '#2f3131'
-  tertiary-container: '#dbdbdb'
-  on-tertiary-container: '#5e6060'
-  error: '#ffb4ab'
-  on-error: '#690005'
-  error-container: '#93000a'
-  on-error-container: '#ffdad6'
-  primary-fixed: '#74f5ff'
-  primary-fixed-dim: '#00dbe7'
-  on-primary-fixed: '#002022'
-  on-primary-fixed-variant: '#004f54'
-  secondary-fixed: '#efdbff'
-  secondary-fixed-dim: '#dcb8ff'
-  on-secondary-fixed: '#2c0051'
-  on-secondary-fixed-variant: '#6700b5'
-  tertiary-fixed: '#e2e2e2'
-  tertiary-fixed-dim: '#c6c6c7'
-  on-tertiary-fixed: '#1a1c1c'
-  on-tertiary-fixed-variant: '#454747'
-  background: '#131313'
-  on-background: '#e5e2e1'
-  surface-variant: '#353534'
+  base: '#09090B'
+  surface: '#18181B'
+  surface-elevated: '#27272A'
+  surface-glass: 'rgba(255,255,255,0.04)'
+  border: 'rgba(255,255,255,0.08)'
+  border-strong: 'rgba(255,255,255,0.14)'
+  text: '#FAFAFA'
+  text-muted: '#A1A1AA'
+  text-soft: '#71717A'
+  primary: '#3B82F6'
+  primary-glow: 'rgba(59,130,246,0.25)'
+  secondary: '#8B5CF6'
+  secondary-glow: 'rgba(139,92,246,0.25)'
+  accent: '#06B6D4'
+  accent-glow: 'rgba(6,182,212,0.25)'
+  success: '#10B981'
 typography:
-  display-lg:
-    fontFamily: Sora
-    fontSize: 72px
-    fontWeight: '800'
-    lineHeight: '1.1'
-    letterSpacing: -0.04em
-  display-lg-mobile:
-    fontFamily: Sora
-    fontSize: 40px
-    fontWeight: '800'
-    lineHeight: '1.2'
-    letterSpacing: -0.02em
-  headline-lg:
-    fontFamily: Sora
-    fontSize: 40px
+  display:
+    fontFamily: Space Grotesk
+    fontSize: clamp(3rem, 8vw, 5.5rem)
     fontWeight: '700'
-    lineHeight: '1.2'
-  headline-md:
-    fontFamily: Sora
-    fontSize: 32px
+    lineHeight: '1.05'
+    letterSpacing: '-0.04em'
+  heading-xl:
+    fontFamily: Archivo
+    fontSize: clamp(2rem, 5vw, 3.5rem)
     fontWeight: '600'
-    lineHeight: '1.3'
+    lineHeight: '1.15'
+    letterSpacing: '-0.03em'
+  heading-lg:
+    fontFamily: Archivo
+    fontSize: clamp(1.5rem, 3.5vw, 2.25rem)
+    fontWeight: '600'
+    lineHeight: '1.25'
   body-lg:
-    fontFamily: Inter
-    fontSize: 18px
+    fontFamily: Archivo
+    fontSize: 1.125rem
     fontWeight: '400'
-    lineHeight: '1.6'
+    lineHeight: '1.7'
   body-md:
-    fontFamily: Inter
-    fontSize: 16px
+    fontFamily: Archivo
+    fontSize: 1rem
     fontWeight: '400'
-    lineHeight: '1.6'
-  label-md:
+    lineHeight: '1.65'
+  label-mono:
     fontFamily: JetBrains Mono
-    fontSize: 14px
+    fontSize: 0.75rem
     fontWeight: '500'
     lineHeight: '1.0'
-    letterSpacing: 0.05em
-  label-sm:
-    fontFamily: JetBrains Mono
-    fontSize: 12px
-    fontWeight: '500'
-    lineHeight: '1.0'
+    letterSpacing: '0.12em'
+    textTransform: uppercase
 rounded:
-  sm: 0.125rem
-  DEFAULT: 0.25rem
-  md: 0.375rem
-  lg: 0.5rem
-  xl: 0.75rem
+  sm: 0.375rem
+  md: 0.625rem
+  lg: 0.875rem
+  xl: 1.25rem
   full: 9999px
 spacing:
   base: 8px
-  xs: 4px
   sm: 12px
   md: 24px
   lg: 48px
@@ -110,240 +69,143 @@ spacing:
   gutter: 24px
 ---
 
-## Brand & Style
+## Brand & Style — Nebula Professional
 
-This design system is engineered for the high-end creative developer. The aesthetic moves beyond traditional minimalism into a **"Cyber-Professional"** movement—a fusion of rigorous engineering and avant-garde digital art. It evokes a sense of technical mastery and forward-thinking innovation.
+A dark-first portfolio design system that fuses **Motion-Driven** interaction, **Glassmorphism** depth, and **Dark Mode OLED** foundations with subtle **Aurora UI** atmospheric elements. The aesthetic is technical, premium, and immersive — like looking into deep space through frosted glass.
 
-The visual style leverages **Subtle Glassmorphism** and **Luminous Accents**. Surfaces are deep and immersive, utilizing layering and light to guide the user's eye rather than heavy ornamentation. The emotional response should be one of "sophisticated power"—feeling like a high-performance terminal that is simultaneously refined and approachable.
+### Key Principles
 
-**Key Principles:**
-- **Depth through Luminance:** Use glows and blurs to define hierarchy.
-- **Precision Engineering:** Clean borders and strict alignment represent code quality.
-- **Atmospheric Immersion:** A "Midnight" base provides a canvas where accents feel electric, not overwhelming.
+- **Depth through Glass**: `backdrop-blur-xl` surfaces layered over deep blacks create a sense of infinite space.
+- **Luminous Precision**: Electric Blue (#3B82F6) and Violet (#8B5CF6) accents cut through glass with controlled glow.
+- **Motion with Purpose**: Scroll-triggered reveals, subtle parallax, and micro-interactions that reward exploration without overwhelming.
+- **Typographic Authority**: Space Grotesk headlines command attention; Archivo body text ensures effortless reading; JetBrains Mono labels ground the design in developer craft.
 
-## Colors
+### Style DNA
 
-The palette is anchored by **Deep Midnight Black (#0a0a0a)** to ensure infinite depth and maximum contrast for glowing elements.
+| Layer | Technique |
+|-------|-----------|
+| **Base** | Deep zinc black (#09090B) — infinite canvas |
+| **Atmosphere** | Fixed radial blobs (blue + violet) at 8-12% opacity |
+| **Grid** | Subtle dot pattern overlay at 4-6% opacity |
+| **Surfaces** | Glass panels with `backdrop-blur-xl` and `bg-white/[0.04]` |
+| **Accents** | Glow borders on hover, scanner-line dividers |
+| **Motion** | IntersectionObserver reveals, parallax blobs, stagger delays |
 
-- **Electric Cyan (#00f2ff):** Used for primary actions, success states, and data visualization. It represents the "logic" and "flow" of the developer's work.
-- **Neon Violet (#8a2be2):** Used for creative highlights, secondary accents, and hover states. It represents the "creative" and "experimental" side of the portfolio.
-- **Functional Gradients:** Use a linear gradient from Cyan to Violet (45 degrees) sparingly for hero typography or primary call-to-action buttons to signify the intersection of technology and art.
-- **Glass Surfaces:** Backgrounds for cards and modals should use a semi-transparent dark tint with a `backdrop-filter: blur(12px)` to maintain legibility over background glows.
+## Colors — Nebula Palette
 
-## Typography
-
-This design system utilizes a high-contrast typographic hierarchy to emphasize technical authority.
-
-- **Sora** is the voice of the brand, used for large-scale displays and headlines. Its geometric construction feels futuristic and architectural.
-- **Inter** provides high legibility for body copy, ensuring that long-form project descriptions or technical blog posts remain effortless to read.
-- **JetBrains Mono** (or generic monospaced fallback) is used for labels, metadata, and code snippets, grounding the design in the developer's craft.
-
-**Usage Notes:**
-- Use **Display LG** with a subtle text-shadow glow (`0 0 20px rgba(0, 242, 255, 0.3)`) for hero section headers.
-- Maintain wide line-heights for body text (1.6) to provide breathing room against the dark background.
-
-## Layout & Spacing
-
-The layout follows a **Fixed-Grid System** for desktop to ensure a gallery-like presentation of work, transitioning to a fluid model for mobile.
-
-- **Desktop (1280px+):** 12-column grid with 24px gutters. Use large margins (80px+) to separate distinct portfolio sections.
-- **Tablet (768px - 1024px):** 8-column grid with 20px gutters.
-- **Mobile (<767px):** 4-column grid with 16px gutters and 16px side margins.
-
-**Rhythm:**
-Spacing should follow a base-8 scale. Larger gaps (`xl`) should be used to separate "Context" (text/description) from "Content" (work/images) to prevent the dark UI from feeling cramped or claustrophobic.
-
-## Elevation & Depth
-
-In a dark-base design system, depth is created through **Luminance and Translucency** rather than traditional black shadows.
-
-1.  **Level 0 (Base):** The #0a0a0a background.
-2.  **Level 1 (Cards/Sections):** Semi-transparent surfaces (`rgba(255, 255, 255, 0.03)`) with a `1px` solid border (`rgba(255, 255, 255, 0.1)`).
-3.  **Level 2 (Interactive/Floating):** Use backdrop-blur (12px) and a subtle Cyan or Violet outer glow (`box-shadow: 0 0 30px rgba(0, 242, 255, 0.15)`).
-4.  **The "Scanner" Effect:** Use 1px thin lines that span the width of the container to act as section dividers, occasionally using a gradient stroke that fades to transparent.
-
-**Soft Blurs:** Use large, low-opacity "blob" gradients in the background (positioned absolutely) to create atmospheric depth behind content.
-
-## Shapes
-
-The design system uses a **"Soft-Geometric"** shape language. 
-
-- **Corners:** Use a consistent `0.25rem` (4px) radius for standard UI elements like inputs and small cards. This keeps the aesthetic feeling "precise" and "technical" rather than "bubbly."
-- **Interactive Elements:** Buttons may use slightly higher rounding (8px) to distinguish them as touchpoints, but never fully pill-shaped, to maintain the architectural vibe.
-- **Containers:** Large project cards should use the `rounded-lg` (8px) setting.
-
-## Components
-
-### Buttons
-- **Primary:** Solid Electric Cyan background with black text. On hover, add a `0 0 20px` glow of the same color.
-- **Secondary:** Transparent background with a 1px Cyan border. Text is Cyan.
-- **Ghost:** Text only (Violet) with a subtle background reveal on hover.
-
-### Cards (Project Showcase)
-- Background: `rgba(255, 255, 255, 0.03)` with backdrop-filter.
-- Border: `1px solid rgba(255, 255, 255, 0.1)`.
-- Interaction: On hover, the border color transitions to the Primary Cyan, and the background opacity increases slightly.
-
-### Inputs
-- Dark backgrounds (`#141414`) with a bottom-only 2px border that glows when focused.
-- Labels should use `JetBrains Mono` at `label-sm` size, positioned above the field.
-
-### Chips/Tags
-- Small, uppercase labels using monospaced font. 
-- Border-only style with low-opacity fills (e.g., `rgba(138, 43, 226, 0.1)` for Violet tags).
-
-### Data Visualizers (Unique Component)
-- For showing "Skills" or "Stats", use thin progress bars with a glow-cap (a 4px circle at the end of the progress line that has a high-intensity glow).
-
----
-
-## Light Mode — Lumina Cyber-Professional
-
-This section extends the base design system for light mode presentation. It follows the same structural principles but shifts to a "laboratory-clean" aesthetic that replaces dark neon with clinical precision.
-
-### Brand & Style
-
-**Cyber-Minimalism**: A light-mode evolution that replaces emissive glows with pigment-rich depth. The emotional response is clarity, efficiency, and premium quality.
-
-Key visual drivers:
-- **Clinical Precision:** Hairline strokes and monospaced accents denote technical rigor.
-- **Translucent Depth:** Light-mode glassmorphism that feels like frosted acrylic rather than deep glass.
-- **Architectural Layout:** Rigorous adherence to grid lines and structural alignment.
-
-### Colors — Light Mode Palette
-
-The palette shifts from emissive glows to pigment-rich depth.
+### Dark Mode (Default)
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `background` | `#f7f9fb` | Page background |
-| `surface` | `#f7f9fb` | Base surface |
-| `surface-dim` | `#d8dadc` | Muted/dimmer surface |
-| `surface-bright` | `#f7f9fb` | Bright surface |
-| `surface-container-lowest` | `#ffffff` | Cards, containers |
-| `surface-container-low` | `#f2f4f6` | Secondary containers |
-| `surface-container` | `#eceef0` | Tertiary containers |
-| `surface-container-high` | `#e6e8ea` | Quaternary containers |
-| `surface-container-highest` | `#e0e3e5` | Elevated containers |
-| `on-surface` | `#191c1e` | Primary text |
-| `on-surface-variant` | `#464555` | Secondary text |
-| `inverse-surface` | `#2d3133` | Inverted surfaces |
-| `inverse-on-surface` | `#eff1f3` | Text on inverted surface |
-| `outline` | `#777587` | Borders, dividers |
-| `outline-variant` | `#c7c4d8` | Subtle borders |
-| `primary` | `#3525cd` | Primary actions (Indigo) |
-| `primary-container` | `#4f46e5` | Primary container fill |
-| `on-primary` | `#ffffff` | Text on primary |
-| `on-primary-container` | `#dad7ff` | Text on primary container |
-| `inverse-primary` | `#c3c0ff` | Primary in inverted context |
-| `secondary` | `#712ae2` | Secondary accents (Violet) |
-| `secondary-container` | `#8a4cfc` | Secondary container fill |
-| `on-secondary` | `#ffffff` | Text on secondary |
-| `on-secondary-container` | `#fffbff` | Text on secondary container |
-| `tertiary` | `#00505f` | Tertiary accents (Cyan) |
-| `tertiary-container` | `#006a7c` | Tertiary container fill |
-| `on-tertiary` | `#ffffff` | Text on tertiary |
-| `on-tertiary-container` | `#93e8ff` | Text on tertiary container |
+| `--base` | `#09090B` | Page background |
+| `--surface` | `#18181B` | Solid surfaces |
+| `--surface-elevated` | `#27272A` | Elevated cards |
+| `--surface-glass` | `rgba(255,255,255,0.04)` | Glass panels |
+| `--border` | `rgba(255,255,255,0.08)` | Subtle borders |
+| `--border-strong` | `rgba(255,255,255,0.14)` | Active borders |
+| `--text` | `#FAFAFA` | Primary text |
+| `--text-muted` | `#A1A1AA` | Secondary text |
+| `--text-soft` | `#71717A` | Tertiary/meta text |
+| `--primary` | `#3B82F6` | Actions, links, primary glow |
+| `--primary-soft` | `rgba(59,130,246,0.15)` | Primary background wash |
+| `--primary-glow` | `rgba(59,130,246,0.25)` | Hover glow |
+| `--secondary` | `#8B5CF6` | Creative accents, highlights |
+| `--secondary-soft` | `rgba(139,92,246,0.15)` | Secondary background wash |
+| `--secondary-glow` | `rgba(139,92,246,0.25)` | Hover glow |
+| `--accent` | `#06B6D4` | Tags, tech indicators |
+| `--accent-soft` | `rgba(6,182,212,0.15)` | Accent background wash |
+| `--success` | `#10B981` | Positive states |
 
-**Key differences from dark mode:**
-- Primary shifts from Electric Cyan (#00f2ff) to Indigo (#3525cd)
-- Secondary remains Violet (#712ae2) for consistency
-- Tertiary becomes a teal-cyan (#00505f) for "cyber heritage" nod
-- Background is stark White (#ffffff) with Neutral-50 (#f7f9fb) secondary
+### Light Mode
 
-### Typography — Light Mode
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--base` | `#FAFAFA` | Page background |
+| `--surface` | `#FFFFFF` | Solid surfaces |
+| `--surface-glass` | `rgba(255,255,255,0.75)` | Glass panels |
+| `--border` | `#E4E4E7` | Subtle borders |
+| `--text` | `#09090B` | Primary text |
+| `--text-muted` | `#52525B` | Secondary text |
+| `--text-soft` | `#71717A` | Tertiary text |
+| `--primary` | `#2563EB` | Actions (darker for light bg) |
+| `--secondary` | `#7C3AED` | Creative accent |
+| `--accent` | `#0891B2` | Tech indicators |
 
-Same as base system with adjustments:
-- **Headlines:** Set with tight letter-spacing for "blocky" structural feel
-- **Labels:** Always uppercase in JetBrains Mono to mimic code comments
-- **Body:** Generous line-height (1.6) for readability against white
+## Typography
 
-| Style | Font | Size | Weight | Line Height |
-|-------|------|------|--------|-------------|
-| `display-lg` | Sora | 64px | 700 | 1.1 |
-| `display-lg-mobile` | Sora | 40px | 700 | 1.2 |
-| `headline-md` | Sora | 32px | 600 | 1.3 |
-| `headline-sm` | Sora | 24px | 600 | 1.4 |
-| `body-lg` | Sora | 18px | 400 | 1.6 |
-| `body-md` | Sora | 16px | 400 | 1.6 |
-| `label-mono` | JetBrains Mono | 12px | 500 | 1.0 |
+| Role | Font | Weights | Usage |
+|------|------|---------|-------|
+| **Display** | Space Grotesk | 700 | Hero headlines, section titles |
+| **Body** | Archivo | 400, 500, 600 | Paragraphs, UI labels, navigation |
+| **Mono** | JetBrains Mono | 500 | Code, tags, metadata, kickers |
 
-### Layout & Spacing
+**Google Fonts Import:**
+```
+Space+Grotesk:wght@400;500;600;700
+Archivo:wght@400;500;600;700
+JetBrains+Mono:wght@500
+```
 
-Same as base system:
-- **Desktop:** 12-column grid, 24px gutters, 80px margins
-- **Tablet:** 8-column grid, 20px gutters
-- **Mobile:** 4-column grid, 20px margins
-- **Base unit:** 8px
-- **Container max:** 1280px
+## Layout & Spacing
 
-### Elevation & Depth — Light Mode
+- **Container**: `max-width: 1280px` with `24px` side padding
+- **Grid**: 12-column desktop, 2-column project cards
+- **Vertical rhythm**: Sections separated by `80px` with scanner-line dividers
+- **Glass panels**: `24px` border-radius, `24-40px` internal padding
 
-**Frosted Layering** instead of traditional shadows:
-- **Glass Effect:** `backdrop-filter: blur(12px)` with `rgba(255, 255, 255, 0.7)` fill
-- **Soft Depth:** `0 20px 40px rgba(79, 70, 229, 0.05)` — hint of primary color
-- **Structural Outlines:** 1px gradient borders (Neutral-200 to transparent) for light hitting sharp edge
+## Elevation & Depth
 
-### Shapes
+| Level | Technique |
+|-------|-----------|
+| **L0 — Base** | `#09090B` solid background |
+| **L1 — Surface** | `bg-white/[0.04]` with `backdrop-blur-xl`, `1px` border `white/[0.08]` |
+| **L2 — Elevated** | Same as L1 + subtle glow on hover (`box-shadow` with primary/secondary) |
+| **L3 — Floating** | Higher blur (`backdrop-blur-2xl`), stronger border, outer glow |
 
-Same as base system:
-- `radius-sm`: 0.125rem (2px)
-- `radius-md`: 0.25rem (4px) — standard
-- `radius-lg`: 0.375rem (6px) — interactive
-- `radius-xl`: 0.5rem (8px) — cards
-- `radius-full`: 9999px
+## Components
 
-### Components — Light Mode
-
-#### Buttons
-- **Primary:** Solid Indigo fill (#3525cd), white text, slight lift on hover
-- **Secondary:** Frosted glass with 1px Indigo border
-- **Ghost:** Text only (Violet), subtle background reveal on hover
-
-#### Cards
-- Frosted glass background with `backdrop-filter: blur(12px)`
-- On hover: border shifts from Neutral-200 to Primary Indigo gradient
-
-#### Chips/Tags
-- Small, rectangular with light indigo background (#EEF2FF)
-- Indigo text, monospaced font
-
-#### Terminal Lists (Experience/Skills)
-- "01", "02" prefix in JetBrains Mono with tertiary cyan (#00505f)
-- Maintains technical narrative
-
-### CSS Implementation Reference
-
+### Glass Panel
 ```css
-:root.light {
-  --background: #f7f9fb;
-  --surface: #f7f9fb;
-  --surface-dim: #d8dadc;
-  --on-surface: #191c1e;
-  --on-surface-variant: #464555;
-  --outline: #777587;
-  --outline-variant: #c7c4d8;
-  --primary: #3525cd;
-  --primary-container: #4f46e5;
-  --on-primary: #ffffff;
-  --on-primary-container: #dad7ff;
-  --secondary: #712ae2;
-  --secondary-container: #8a4cfc;
-  --on-secondary: #ffffff;
-  --on-secondary-container: #fffbff;
-  --tertiary: #00505f;
-  --tertiary-container: #006a7c;
-  --on-tertiary: #ffffff;
-  --on-tertiary-container: #93e8ff;
-  --surface-container-lowest: #ffffff;
-  --surface-container-low: #f2f4f6;
-  --surface-container: #eceef0;
-}
-
-:root.light .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.05);
-  backdrop-filter: blur(12px);
+.glass-panel {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px);
+  border-radius: 1.25rem;
 }
 ```
+
+### Scanner Line
+```css
+.scanner-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary) 20%, var(--secondary) 80%, transparent);
+}
+```
+
+### Buttons
+- **Primary**: Solid `--primary` bg, dark text, glow on hover
+- **Secondary**: Glass bg with `--primary` border
+- **Ghost**: Text-only with bg reveal on hover
+
+### Cards (Projects)
+- Glass surface with `backdrop-blur`
+- Image with gradient overlay
+- On hover: border shifts to primary color, subtle glow
+
+### Tags/Pills
+- Mono font, uppercase, tracking-wide
+- Border-only style with accent-colored soft bg
+
+---
+
+## Pre-Delivery Checklist
+
+- [ ] No emoji icons — SVG only
+- [ ] `cursor-pointer` on all interactive elements
+- [ ] Hover transitions 200-300ms ease-out
+- [ ] Dark mode: text contrast ≥ 4.5:1
+- [ ] Focus rings visible (2px primary, 3px offset)
+- [ ] `prefers-reduced-motion` respected
+- [ ] Responsive: 375px, 768px, 1024px, 1440px
+- [ ] All images have alt text
+- [ ] No horizontal scroll on mobile
