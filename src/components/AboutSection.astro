@@ -3,15 +3,15 @@ import { aboutContent } from '../data/portfolio';
 ---
 
 <section id="sobre-mi" class="grid gap-6 md:grid-cols-[0.95fr_1.65fr]">
-	<div class="glass-panel rounded-[24px] px-6 py-7 md:px-8 md:py-10">
-		<p class="section-kicker">01 / Sobre mí</p>
-		<h2 class="font-display mt-4 text-3xl font-bold tracking-[-0.04em] text-white md:text-4xl">
+	<div class="glass-surface overflow-hidden rounded-[24px] px-6 py-7 md:px-8 md:py-10">
+		<div class="h-1 w-16 bg-(--secondary) rounded-full mb-6"></div>
+		<h2 class="font-display text-3xl font-bold tracking-[-0.04em] text-(--text) md:text-4xl">
 			{aboutContent.title}
 		</h2>
-		<p class="mt-4 text-sm leading-7 text-(--text-muted)">{aboutContent.lead}</p>
+		<p class="mt-5 text-lg leading-8 text-(--text-muted)">{aboutContent.lead}</p>
 	</div>
 
-	<div class="glass-panel rounded-[24px] px-6 py-7 md:px-8 md:py-10">
+	<div class="glass-surface rounded-[24px] px-6 py-7 md:px-8 md:py-10">
 		{
 			aboutContent.paragraphs.map((paragraph, index) => (
 				<p class:list={['text-lg leading-8 text-(--text-muted)', index > 0 && 'mt-5']}>{paragraph}</p>

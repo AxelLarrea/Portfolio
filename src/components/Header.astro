@@ -1,5 +1,5 @@
 ---
-import { cv, sectionLinks } from '../data/portfolio';
+import { sectionLinks } from '../data/portfolio';
 import SunIcon from '../assets/icons/SunIcon.astro';
 import MoonIcon from '../assets/icons/MoonIcon.astro';
 
@@ -9,8 +9,8 @@ const allLinks = [experienceLink, ...sectionLinks];
 
 <header class="sticky top-4 z-50 px-4 pt-4">
 	<div class="container-frame glass-panel rounded-[18px]">
-		<nav class="flex items-center justify-between gap-4 px-4 py-3 md:px-6">
-			<a href="#inicio" class="focus-ring font-display text-lg font-extrabold tracking-[-0.08em] text-[#e1fdff] shrink-0">
+		<nav class="flex items-center justify-between gap-4 px-4 py-2 md:px-6">
+			<a href="#inicio" class="focus-ring font-display text-lg font-extrabold tracking-[-0.08em] text-(--on-primary-container) shrink-0">
 				AL.DEV
 			</a>
 			<div class="flex items-center justify-center gap-2 md:gap-4 flex-1">
@@ -18,7 +18,7 @@ const allLinks = [experienceLink, ...sectionLinks];
 					allLinks.map((link) => (
 						<a
 							href={link.href}
-							class="nav-link focus-ring rounded-full px-2 py-2 text-sm transition duration-300 hover:bg-white/5 hover:text-white md:px-3"
+							class="nav-link focus-ring inline-flex items-center rounded-full px-3 py-1 text-sm h-9 transition duration-300 hover:bg-white/5 hover:text-(--text) md:px-3"
 						>
 							{link.label}
 						</a>
@@ -34,13 +34,6 @@ const allLinks = [experienceLink, ...sectionLinks];
 					<SunIcon class="sun-icon h-4 w-4 hidden" />
 					<MoonIcon class="moon-icon h-4 w-4" />
 				</button>
-				<a
-					href={cv.href}
-					download={cv.downloadName}
-					class="focus-ring rounded-[10px] border border-[rgba(0,242,255,0.24)] bg-[rgba(0,242,255,0.14)] px-3 py-2 font-mono text-xs uppercase tracking-[0.2em] text-[#e1fdff] transition duration-300 hover:shadow-[0_0_24px_rgba(0,242,255,0.22)]"
-				>
-					Descargar CV
-				</a>
 			</div>
 		</nav>
 	</div>

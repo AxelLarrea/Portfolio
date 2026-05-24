@@ -19,6 +19,8 @@ const {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
+		<meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#f7f9fb" media="(prefers-color-scheme: light)" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -34,6 +36,9 @@ const {
 		</div>
 
 		<script>
+			// Prevent browser scroll restoration on reload
+			history.scrollRestoration = 'manual';
+
 			// Intersection Observer for scroll animations
 			const observer = new IntersectionObserver(
 				(entries) => {
@@ -44,10 +49,24 @@ const {
 				{ threshold: 0.2 }
 			);
 
-			// Observe all elements with .animate-on-scroll
 			document.querySelectorAll('.animate-on-scroll').forEach((el) => {
 				observer.observe(el);
 			});
+
+			addEventListener('beforeunload', () => observer.disconnect());
+
+			// Keyboard shortcuts: Ctrl/Cmd + digit jumps to sections
+			const sections = ['#inicio', '#sobre-mi', '#experiencia', '#proyectos', '#tecnologias', '#contacto'];
+			addEventListener('keydown', (e) => {
+				if ((e.ctrlKey || e.metaKey) && e.key >= '1' && e.key <= '6') {
+					e.preventDefault();
+					const target = document.querySelector(sections[+e.key - 1]);
+					if (target) target.scrollIntoView({ behavior: 'smooth' });
+				}
+			});
+
+			// Ensure page starts at top on load
+			addEventListener('load', () => window.scrollTo(0, 0));
 		</script>
 	</body>
 </html>

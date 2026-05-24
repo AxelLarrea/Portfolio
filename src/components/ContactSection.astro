@@ -1,40 +1,103 @@
 ---
-import ContactIcon from "../assets/icons/ContactIcon.astro";
-import CopyIcon from "../assets/icons/CopyIcon.astro";
-import SendIcon from "../assets/icons/SendIcon.astro";
+import CopyIcon from '../assets/icons/CopyIcon.astro';
+import SendIcon from '../assets/icons/SendIcon.astro';
+import GithubIcon from '../assets/icons/GithubIcon.astro';
+import LinkedInIcon from '../assets/icons/LinkedInIcon.astro';
+import { cv, socialLinks } from '../data/portfolio';
 ---
 
-<section id="contact" class="w-full flex flex-col gap-4 px-8 pt-20">
-  <h2 class="flex items-center gap-2 text-3xl font-bold opacity-95">
-    <ContactIcon class="size-6" />
-    Contacto
-  </h2>
-  <div class="flex flex-col gap-4 text-lg text-(--text-muted) text-pretty">
-    <p>Si quieres contactarme, puedes enviarme un correo electrónico a:</p>
+<section id="contacto" class="mt-20 md:mt-24">
+	<div class="mb-8">
+		<div class="h-1 w-16 bg-(--tertiary) rounded-full mb-6"></div>
+		<h2 class="font-display text-3xl font-bold tracking-[-0.04em] text-(--text) md:text-4xl">
+			Contacto
+		</h2>
+		<p class="mt-4 text-lg leading-8 text-(--text-muted) max-w-xl">
+			Si querés hablar sobre una oportunidad, colaborar en un proyecto, o simplemente conectar.
+		</p>
+	</div>
 
-    <span
-      class="flex items-center justify-between text-base border border-(--outline) rounded-full transition pl-4 py-1 hover:border-gray-700 sm:text-lg"
-    >
-      axel.larrea.9@gmail.com
-      <div class="flex xs:gap-2">
-        <button
-          class="flex items-center py-2 pr-4 cursor-pointer"
-          aria-label="Copy email"
-          onclick="navigator.clipboard.writeText('axel.larrea.9@gmail.com')"
-          title="Copy email"
-        >
-          <CopyIcon class="size-6" />
-        </button>
+	<div class="glass-panel rounded-[24px] px-6 py-8 md:px-10 md:py-10">
+		<!-- Email row -->
+		<div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+			<div class="flex items-center gap-3 min-w-0">
+				<span class="font-mono text-sm text-(--text) truncate">
+					axel.larrea.9@gmail.com
+				</span>
+			</div>
+			<div class="flex items-center gap-2 shrink-0">
+				<button
+					id="copy-email"
+					aria-label="Copiar email al portapapeles"
+					class="focus-ring flex items-center gap-2 rounded-[10px] border border-(--surface-border) bg-white/3 px-4 py-2 text-sm text-(--text-muted) transition duration-300 hover:border-(--primary) hover:text-(--primary)"
+				>
+					<CopyIcon class="h-4 w-4" />
+					<span class="hidden sm:inline">Copiar</span>
+				</button>
+				<a
+					href="mailto:axel.larrea.9@gmail.com"
+					aria-label="Enviar email"
+					class="focus-ring flex items-center gap-2 rounded-[10px] border border-(--surface-border) bg-white/3 px-4 py-2 text-sm text-(--text-muted) transition duration-300 hover:border-(--primary) hover:text-(--primary)"
+				>
+					<SendIcon class="h-4 w-4" />
+					<span class="hidden sm:inline">Enviar</span>
+				</a>
+			</div>
+		</div>
 
-        <button
-          class="flex items-center py-2 pr-4 cursor-pointer"
-          aria-label="Send email"
-        >
-          <a href="mailto:axel.larrea.9@gmail.com" aria-label="Send email">
-            <SendIcon class="size-6" />
-          </a>
-        </button>
-      </div>
-    </span>
-  </div>
+		<!-- Divider -->
+		<div class="scanner-line my-6"></div>
+
+		<!-- Social links + CV -->
+		<div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+			<div class="flex items-center gap-4">
+				{
+					socialLinks.filter((l) => l.icon !== 'email').map((link) => (
+						<a
+							href={link.href}
+							target="_blank"
+							rel="noreferrer"
+							aria-label={link.label}
+							class="focus-ring flex items-center gap-2 text-sm text-(--text-muted) transition duration-300 hover:text-(--text)"
+						>
+							{link.icon === 'github' && <GithubIcon class="h-4 w-4" />}
+							{link.icon === 'linkedin' && <LinkedInIcon class="h-4 w-4" />}
+							{link.label}
+						</a>
+					))
+				}
+			</div>
+
+			<a
+				href={cv.href}
+				download={cv.downloadName}
+				class="cv-button focus-ring"
+			>
+				Descargar CV
+			</a>
+		</div>
+	</div>
 </section>
+
+<script>
+	const copyBtn = document.getElementById('copy-email');
+	copyBtn?.addEventListener('click', async () => {
+		try {
+			await navigator.clipboard.writeText('axel.larrea.9@gmail.com');
+			copyBtn.dataset.copied = 'true';
+			const span = copyBtn.querySelector('span');
+			if (span) span.textContent = 'Copiado';
+			// Reset on next click anywhere outside
+			const reset = (e: MouseEvent) => {
+				if (!copyBtn.contains(e.target as Node)) {
+					delete copyBtn.dataset.copied;
+					if (span) span.textContent = 'Copiar';
+					document.removeEventListener('click', reset);
+				}
+			};
+			setTimeout(() => document.addEventListener('click', reset), 100);
+		} catch {
+			// Fallback silently
+		}
+	});
+</script>

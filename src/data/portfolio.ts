@@ -50,7 +50,8 @@ export interface TechnologyItem {
 export const sectionLinks: SectionLink[] = [
 	{ href: '#sobre-mi', label: 'Sobre mí' },
 	{ href: '#proyectos', label: 'Proyectos' },
-	{ href: '#tecnologias', label: 'Tecnologías' }
+	{ href: '#tecnologias', label: 'Tecnologías' },
+	{ href: '#contacto', label: 'Contacto' }
 ];
 
 export const socialLinks: SocialLink[] = [

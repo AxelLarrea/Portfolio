@@ -19,48 +19,87 @@ const technologyIcons = {
 	tailwind: TailwindIcon,
 	supabase: SupabaseIcon
 };
+
+const featured = new Set(['React', 'TypeScript', 'Tailwind CSS']);
+const featuredTechs = technologies.filter((t) => featured.has(t.name));
+const otherTechs = technologies.filter((t) => !featured.has(t.name));
 ---
 
 <section id="tecnologias">
-	<div class="mb-6">
-		<p class="section-kicker">03 / Tecnologías</p>
-		<h2 class="font-display mt-3 text-3xl font-bold tracking-[-0.04em] text-white md:text-4xl">
+	<div class="mb-8">
+		<h2 class="font-display text-3xl font-bold tracking-[-0.04em] text-(--text) md:text-4xl">
 			Stack técnico para interfaces, servicios y producto web.
 		</h2>
 	</div>
 
-	<div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+	<!-- Featured row: larger cards with prominent icons -->
+	<div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 		{
-			technologies.map((tech, index) => {
+			featuredTechs.map((tech) => {
 				const Icon = tech.icon ? technologyIcons[tech.icon] : undefined;
 
 				return (
 					<div
 						class:list={[
-							`stagger-${index + 1}`,
-							'glass-panel group rounded-[20px] px-5 py-5 transition-[transform_border-color] duration-300 ease-out hover:-translate-y-1',
+							'stagger-1 glass-surface group rounded-[24px] px-6 py-7 transition-[transform_border-color] duration-300 ease-out hover:-translate-y-1',
 							tech.accent === 'cyan' && 'hover:border-[rgba(0,242,255,0.22)]',
 							tech.accent === 'violet' && 'hover:border-[rgba(138,43,226,0.24)]',
 							tech.accent === 'neutral' && 'hover:border-white/15'
 						]}
 					>
-						<div class="flex items-center gap-4">
-							<div class="flex h-14 w-14 items-center justify-center rounded-[16px] border border-white/10 bg-black/20">
+						<div class="flex items-start gap-5">
+							<div
+								class:list={[
+									'flex h-16 w-16 shrink-0 items-center justify-center rounded-[18px]',
+									tech.accent === 'cyan' && 'border border-[rgba(0,242,255,0.3)] bg-[rgba(0,242,255,0.08)]',
+									tech.accent === 'violet' && 'border border-[rgba(138,43,226,0.3)] bg-[rgba(138,43,226,0.08)]',
+									tech.accent === 'neutral' && 'border border-white/10 bg-black/20'
+								]}
+							>
 								{
 									Icon ? (
-										<Icon class="h-8 w-8" />
+										<Icon class="h-9 w-9" />
 									) : (
-										<span class="font-mono text-lg font-semibold tracking-[0.2em] text-[#e1fdff]">
+										<span class="font-mono text-lg font-semibold tracking-[0.2em] text-(--on-primary-container)">
 											{tech.badge}
 										</span>
 									)
 								}
 							</div>
-							<div>
-								<h3 class="font-display text-xl font-semibold tracking-[-0.03em] text-white">{tech.name}</h3>
-								<p class="mt-1 text-sm leading-6 text-(--text-soft)">{tech.detail}</p>
+							<div class="min-w-0">
+								<h3 class="font-display text-xl font-semibold tracking-[-0.03em] text-(--text)">{tech.name}</h3>
+								<p class="mt-2 text-sm leading-6 text-(--text-soft)">{tech.detail}</p>
 							</div>
 						</div>
+					</div>
+				);
+			})
+		}
+	</div>
+
+	<!-- Compact row: border-only chips, horizontal layout -->
+	<div class="mt-5 flex flex-wrap gap-3">
+		{
+			otherTechs.map((tech, index) => {
+				const Icon = tech.icon ? technologyIcons[tech.icon] : undefined;
+
+				return (
+					<div
+						class:list={[
+							`stagger-${index + 2}`,
+							'secondary-pill group flex items-center gap-2.5 rounded-xl border border-(--surface-border) bg-linear-to-b from-white/[0.045] to-white/[0.025] px-4 py-2.5 transition duration-300 ease-out hover:border-(--outline)'
+						]}
+					>
+						{
+							Icon ? (
+								<Icon class="h-5 w-5 shrink-0" />
+							) : (
+								<span class="font-mono text-xs font-semibold tracking-[0.2em] text-(--on-primary-container)">
+									{tech.badge}
+								</span>
+							)
+						}
+						<span class="font-medium text-sm text-(--text-muted)">{tech.name}</span>
 					</div>
 				);
 			})
