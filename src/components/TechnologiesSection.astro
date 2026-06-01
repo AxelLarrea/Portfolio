@@ -1,15 +1,15 @@
 ---
-import CssIcon from '../assets/icons/technologies/CSSIcon.astro';
-import ReactIcon from '../assets/icons/technologies/ReactIcon.astro';
-import TailwindIcon from '../assets/icons/technologies/TailwindIcon.astro';
-import TypescriptIcon from '../assets/icons/technologies/TypescriptIcon.astro';
-import SupabaseIcon from '../assets/icons/technologies/SupabaseIcon.astro';
 import HtmlIcon from '../assets/icons/technologies/HTMLIcon.astro';
+import CssIcon from '../assets/icons/technologies/CSSIcon.astro';
 import JavascriptIcon from '../assets/icons/technologies/JavascriptIcon.astro';
+import TypescriptIcon from '../assets/icons/technologies/TypescriptIcon.astro';
+import ReactIcon from '../assets/icons/technologies/ReactIcon.astro';
 import NodeIcon from '../assets/icons/technologies/NodeIcon.astro';
+import TailwindIcon from '../assets/icons/technologies/TailwindIcon.astro';
+import SupabaseIcon from '../assets/icons/technologies/SupabaseIcon.astro';
 import { technologies } from '../data/portfolio';
 
-const technologyIcons = {
+const iconMap = {
 	html: HtmlIcon,
 	css: CssIcon,
 	javascript: JavascriptIcon,
@@ -17,59 +17,31 @@ const technologyIcons = {
 	react: ReactIcon,
 	node: NodeIcon,
 	tailwind: TailwindIcon,
-	supabase: SupabaseIcon
+	supabase: SupabaseIcon,
 };
 
-const featured = new Set(['React', 'TypeScript', 'Tailwind CSS']);
-const featuredTechs = technologies.filter((t) => featured.has(t.name));
-const otherTechs = technologies.filter((t) => !featured.has(t.name));
+const featuredNames = ['React', 'TypeScript', 'Tailwind CSS'];
+const featured = technologies.filter((t) => featuredNames.includes(t.name));
+const secondary = technologies.filter((t) => !featuredNames.includes(t.name));
 ---
 
-<section id="tecnologias">
-	<div class="mb-8">
-		<h2 class="font-display text-3xl font-bold tracking-[-0.04em] text-(--text) md:text-4xl">
-			Stack técnico para interfaces, servicios y producto web.
-		</h2>
-	</div>
+<section id="tecnologias" class="container-frame">
+	<h2 class="font-display text-2xl font-bold tracking-[-0.03em] text-(--text) mb-6 md:text-3xl">
+		Tecnologías
+	</h2>
 
-	<!-- Featured row: Bento grid -->
-	<div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+	<div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
 		{
-			featuredTechs.map((tech) => {
-				const Icon = tech.icon ? technologyIcons[tech.icon] : undefined;
-
+			featured.map((tech) => {
+				const Icon = tech.icon ? iconMap[tech.icon] : null;
 				return (
-					<div
-						class:list={[
-							'stagger-1 glass-surface rounded-[24px] px-6 py-7 transition duration-300 ease-out hover:-translate-y-1',
-							tech.accent === 'cyan' && 'hover:border-(--primary)/22',
-							tech.accent === 'violet' && 'hover:border-(--secondary)/24',
-							tech.accent === 'neutral' && 'hover:border-white/15'
-						]}
-					>
-						<div class="flex items-start gap-5">
-							<div
-								class:list={[
-									'flex h-16 w-16 shrink-0 items-center justify-center rounded-[18px]',
-									tech.accent === 'cyan' && 'border border-(--primary)/30 bg-[var(--primary-soft)]',
-									tech.accent === 'violet' && 'border border-(--secondary)/30 bg-[var(--secondary-soft)]',
-									tech.accent === 'neutral' && 'border border-(--border) bg-black/20'
-								]}
-							>
-								{
-									Icon ? (
-										<Icon class="h-9 w-9" />
-									) : (
-										<span class="font-mono text-lg font-semibold tracking-[0.2em] text-(--text)">
-											{tech.badge}
-										</span>
-									)
-								}
-							</div>
-							<div class="min-w-0">
-								<h3 class="font-display text-xl font-semibold text-(--text)">{tech.name}</h3>
-								<p class="mt-2 text-sm text-(--text-soft)">{tech.detail}</p>
-							</div>
+					<div class="card p-5 flex items-start gap-4 hover:-translate-y-1 transition duration-200 cursor-pointer">
+						<div class="h-14 w-14 rounded-xl bg-(--accent-soft) border border-(--accent)/30 flex items-center justify-center shrink-0">
+							{Icon && <Icon class="h-8 w-8" />}
+						</div>
+						<div class="min-w-0">
+							<h3 class="font-display text-lg font-semibold text-(--text)">{tech.name}</h3>
+							<p class="text-sm text-(--text-muted) mt-1">{tech.detail}</p>
 						</div>
 					</div>
 				);
@@ -77,30 +49,18 @@ const otherTechs = technologies.filter((t) => !featured.has(t.name));
 		}
 	</div>
 
-	<!-- Secondary row: compact pills -->
-	<div class="mt-5 flex flex-wrap gap-3">
+	<div class="mt-4 flex flex-wrap gap-2">
 		{
-			otherTechs.map((tech, index) => {
-				const Icon = tech.icon ? technologyIcons[tech.icon] : undefined;
-
+			secondary.map((tech) => {
+				const Icon = tech.icon ? iconMap[tech.icon] : null;
 				return (
-					<div
-						class:list={[
-							`stagger-${index + 2}`,
-							'secondary-pill flex items-center gap-2.5 rounded-xl px-4 py-2.5'
-						]}
-					>
-						{
-							Icon ? (
-								<Icon class="h-5 w-5 shrink-0" />
-							) : (
-								<span class="font-mono text-xs tracking-[0.2em] text-(--text-muted)">
-									{tech.badge}
-								</span>
-							)
+					<span class="tag flex items-center gap-2 px-3 py-2 cursor-pointer">
+						{tech.badge
+							? <span class="font-mono text-[10px]">{tech.badge}</span>
+							: Icon && <Icon class="h-4 w-4" />
 						}
-						<span class="font-medium text-sm text-(--text-muted)">{tech.name}</span>
-					</div>
+						{tech.name}
+					</span>
 				);
 			})
 		}

@@ -1,66 +1,62 @@
 ---
-import { sectionLinks } from '../data/portfolio';
 import SunIcon from '../assets/icons/SunIcon.astro';
 import MoonIcon from '../assets/icons/MoonIcon.astro';
-
-const experienceLink = { href: '#experiencia', label: 'Experiencia profesional' };
-const allLinks = [experienceLink, ...sectionLinks];
+import { sectionLinks } from '../data/portfolio';
 ---
 
-<header class="sticky top-4 z-50 px-4 pt-4">
-	<div class="container-frame glass-panel rounded-[18px]">
-		<nav class="flex items-center justify-between gap-4 px-4 py-2 md:px-6">
-			<a href="#inicio" class="focus-ring font-display text-lg font-extrabold tracking-tight text-(--text) shrink-0">
-				AL.DEV
+<header class="sticky top-4 z-50 container-frame">
+	<nav class="card rounded-xl flex items-center justify-between px-4 py-3 md:px-6">
+		<a
+			href="#inicio"
+			class="font-display text-lg font-extrabold tracking-tight text-(--text) cursor-pointer"
+		>
+			AL.DEV
+		</a>
+
+		<div class="hidden md:flex items-center gap-1">
+			{
+				sectionLinks.map((link) => (
+					<a
+						href={link.href}
+						class="rounded-full px-3 py-1.5 text-sm text-(--text-muted) hover:text-(--text) hover:bg-(--surface-elevated) transition duration-200 cursor-pointer"
+					>
+						{link.label}
+					</a>
+				))
+			}
+			<a
+				href="#experiencia"
+				class="rounded-full px-3 py-1.5 text-sm text-(--text-muted) hover:text-(--text) hover:bg-(--surface-elevated) transition duration-200 cursor-pointer"
+			>
+				Experiencia
 			</a>
-			<div class="flex items-center justify-center gap-2 md:gap-4 flex-1">
-				{
-					allLinks.map((link) => (
-						<a
-							href={link.href}
-							class="nav-link focus-ring inline-flex items-center rounded-full px-3 py-1 text-sm h-9 transition duration-300 text-(--text-muted) hover:bg-white/5 hover:text-(--text) md:px-3"
-						>
-							{link.label}
-						</a>
-					))
-				}
-			</div>
-			<div class="flex items-center gap-2 shrink-0">
-				<button
-					id="theme-toggle"
-					aria-label="Alternar tema claro/oscuro"
-					class="focus-ring flex h-9 w-9 items-center justify-center rounded-[10px] border border-(--border) bg-white/5 transition duration-300 hover:border-(--border-strong) hover:bg-white/10"
-				>
-					<SunIcon class="sun-icon h-4 w-4 hidden" />
-					<MoonIcon class="moon-icon h-4 w-4" />
-				</button>
-			</div>
-		</nav>
-	</div>
+		</div>
+
+		<button
+			id="theme-toggle"
+			type="button"
+			class="h-9 w-9 rounded-lg border border-(--border) bg-(--surface) hover:border-(--accent) cursor-pointer flex items-center justify-center transition-colors duration-200 focus-ring"
+		>
+			<SunIcon class="sun-icon w-5 h-5" />
+			<MoonIcon class="moon-icon w-5 h-5" />
+		</button>
+	</nav>
 </header>
 
 <script>
 	const themeToggle = document.getElementById('theme-toggle');
 	const html = document.documentElement;
-
-	// Check localStorage or default to dark
 	const currentTheme = localStorage.getItem('portfolio-theme') || 'dark';
 	html.classList.toggle('light', currentTheme === 'light');
-
-	// Icon toggle using data attribute
 	const sunIcon = document.querySelector('#theme-toggle .sun-icon');
 	const moonIcon = document.querySelector('#theme-toggle .moon-icon');
-
 	function updateIcons(isLight: boolean) {
 		if (sunIcon && moonIcon) {
 			sunIcon.classList.toggle('hidden', !isLight);
 			moonIcon.classList.toggle('hidden', isLight);
 		}
 	}
-
-	// Initial state
 	updateIcons(html.classList.contains('light'));
-
 	themeToggle?.addEventListener('click', () => {
 		const isLight = html.classList.toggle('light');
 		localStorage.setItem('portfolio-theme', isLight ? 'light' : 'dark');

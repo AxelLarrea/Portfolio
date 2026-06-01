@@ -14,47 +14,38 @@ import Layout from '../layouts/Layout.astro';
 	title="Axel Larrea | Portfolio"
 	description="Portfolio personal de Axel Larrea, desarrollador web enfocado en interfaces modernas, código limpio y productos web de alta calidad."
 >
-	<div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-		<div
-			class="absolute -left-40 -top-32 h-96 w-[24rem] rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--primary)_12%,transparent),transparent_68%)] blur-3xl"
-		></div>
-		<div
-			class="absolute -bottom-40 -right-32 size-112 rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--secondary)_12%,transparent),transparent_70%)] blur-3xl"
-		></div>
-	</div>
-
 	<Header />
 
-	<main class="container-frame pb-16 pt-8 md:pt-10">
+	<main class="container-frame pb-20 pt-8 md:pt-12">
 		<div class="animate-on-scroll">
 			<HeroSection />
 		</div>
 
-		<div class="scanner-line my-10 md:my-14"></div>
+		<div class="divider my-12 md:my-16"></div>
 
 		<div class="animate-on-scroll">
 			<AboutSection />
 		</div>
 
-		<div class="scanner-line-violet my-10 md:my-14"></div>
+		<div class="divider-accent divider my-12 md:my-16"></div>
 
 		<div class="animate-on-scroll">
 			<ExperienceSection />
 		</div>
 
-		<div class="scanner-line my-10 md:my-14"></div>
+		<div class="divider my-12 md:my-16"></div>
 
 		<div class="animate-on-scroll">
 			<ProjectsSection />
 		</div>
 
-		<div class="scanner-line-violet my-10 md:my-14"></div>
+		<div class="divider-accent divider my-12 md:my-16"></div>
 
 		<div class="animate-on-scroll">
 			<TechnologiesSection />
 		</div>
 
-		<div class="scanner-line my-10 md:my-14"></div>
+		<div class="divider my-12 md:my-16"></div>
 
 		<div class="animate-on-scroll">
 			<ContactSection />

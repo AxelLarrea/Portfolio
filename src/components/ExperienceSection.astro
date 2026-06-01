@@ -1,34 +1,36 @@
 ---
 import { experience } from '../data/portfolio';
+
+const exp = experience[0];
 ---
 
-<section id="experiencia">
-	<div class="container-frame">
-		<h2 class="stagger-1 mb-8 font-display text-2xl font-bold tracking-[-0.04em] text-(--primary) md:text-3xl">
-			Experiencia profesional
-		</h2>
+<section id="experiencia" class="container-frame py-16 md:py-24">
+	<h2 class="font-display text-2xl font-bold tracking-[-0.03em] mb-6 text-(--accent)">
+		Experiencia
+	</h2>
 
-		<div class="stagger-2">
-			<div class="glass-panel overflow-hidden rounded-[24px]">
-				<div class="h-1 bg-linear-to-r from-(--primary)/60 via-(--secondary)/40 to-transparent"></div>
+	<div class="stagger-1">
+		<article class="card rounded-xl overflow-hidden border-l-[3px] border-l-(--accent)">
+			<div class="p-6 md:p-8">
+				<span class="font-mono text-xs text-(--accent) uppercase tracking-wider">
+					{exp.period}
+				</span>
 
-				<div class="p-6 md:p-8">
-					<div class="mb-4 flex flex-col gap-2">
-						<span class="font-mono text-xs uppercase tracking-[0.2em] text-(--text-soft)">{experience[0].period}</span>
-						<h3 class="font-display text-2xl font-bold tracking-[-0.04em] text-(--text)">{experience[0].company}</h3>
-						<p class="font-medium text-(--text-muted)">{experience[0].role}</p>
-					</div>
+				<h3 class="font-display text-2xl font-bold tracking-[-0.03em] text-(--text) mt-1">
+					{exp.company}
+				</h3>
 
-					<ul class="mt-6 flex flex-col gap-3">
-						{experience[0].description.map((item) => (
-							<li class="flex items-start gap-3 text-sm leading-6 text-(--text-muted)">
-								<span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-(--primary)/70"></span>
-								<span>{item}</span>
-							</li>
-						))}
-					</ul>
-				</div>
+				<p class="text-base text-muted">{exp.role}</p>
+
+				<ul class="mt-5 space-y-3">
+					{exp.description.map((item) => (
+						<li class="flex gap-3 text-sm leading-6 text-muted">
+							<span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-(--accent) shrink-0"></span>
+							<span>{item}</span>
+						</li>
+					))}
+				</ul>
 			</div>
-		</div>
+		</article>
 	</div>
 </section>

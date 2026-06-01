@@ -8,7 +8,7 @@ interface Props {
 
 const {
 	title = 'Axel Larrea | Desarrollador Web',
-	description = 'Portfolio personal de Axel Larrea con foco en desarrollo web, proyectos y stack técnico.'
+	description = 'Portfolio personal de Axel Larrea — desarrollo web, interfaces modernas y código limpio.'
 } = Astro.props;
 ---
 
@@ -19,12 +19,12 @@ const {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
-		<meta name="theme-color" content="#09090B" media="(prefers-color-scheme: dark)" />
-		<meta name="theme-color" content="#FAFAFA" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
 			rel="stylesheet"
 		/>
 		<link rel="icon" type="image/svg+xml" href="/porftolio.svg" />
@@ -36,36 +36,27 @@ const {
 		</div>
 
 		<script>
-			// Prevent browser scroll restoration on reload
 			history.scrollRestoration = 'manual';
 
-			// Intersection Observer for scroll animations
 			const observer = new IntersectionObserver(
 				(entries) => {
-					entries.forEach((entry) => {
-						entry.target.classList.toggle('is-visible', entry.isIntersecting);
-					});
+					entries.forEach(e => e.target.classList.toggle('is-visible', e.isIntersecting));
 				},
-				{ threshold: 0.15 }
+				{ threshold: 0.12 }
 			);
 
-			document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-				observer.observe(el);
-			});
-
+			document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 			addEventListener('beforeunload', () => observer.disconnect());
 
-			// Keyboard shortcuts: Ctrl/Cmd + digit jumps to sections
 			const sections = ['#inicio', '#sobre-mi', '#experiencia', '#proyectos', '#tecnologias', '#contacto'];
 			addEventListener('keydown', (e) => {
 				if ((e.ctrlKey || e.metaKey) && e.key >= '1' && e.key <= '6') {
 					e.preventDefault();
-					const target = document.querySelector(sections[+e.key - 1]);
-					if (target) target.scrollIntoView({ behavior: 'smooth' });
+					const t = document.querySelector(sections[+e.key - 1]);
+					if (t) t.scrollIntoView({ behavior: 'smooth' });
 				}
 			});
 
-			// Ensure page starts at top on load
 			addEventListener('load', () => window.scrollTo(0, 0));
 		</script>
 	</body>
