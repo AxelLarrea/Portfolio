@@ -20,28 +20,33 @@ const iconMap = {
 	supabase: SupabaseIcon,
 };
 
-const featuredNames = ['React', 'TypeScript', 'Tailwind CSS'];
-const featured = technologies.filter((t) => featuredNames.includes(t.name));
-const secondary = technologies.filter((t) => !featuredNames.includes(t.name));
+const featuredOrder = ['React', 'TypeScript', 'Tailwind CSS'];
+const featured = featuredOrder
+	.map((name) => technologies.find((t) => t.name === name)!)
+	.filter(Boolean);
+const secondary = technologies.filter((t) => !featuredOrder.includes(t.name));
 ---
 
-<section id="tecnologias" class="container-frame">
+<section id="tecnologias">
+	<div class="w-12 h-1 bg-(--accent) rounded-full mb-5"></div>
 	<h2 class="font-display text-2xl font-bold tracking-[-0.03em] text-(--text) mb-6 md:text-3xl">
 		Tecnologías
 	</h2>
 
 	<div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
 		{
-			featured.map((tech) => {
+			featured.map((tech, i) => {
 				const Icon = tech.icon ? iconMap[tech.icon] : null;
 				return (
-					<div class="card p-5 flex items-start gap-4 hover:-translate-y-1 transition duration-200 cursor-pointer">
-						<div class="h-14 w-14 rounded-xl bg-(--accent-soft) border border-(--accent)/30 flex items-center justify-center shrink-0">
-							{Icon && <Icon class="h-8 w-8" />}
-						</div>
-						<div class="min-w-0">
-							<h3 class="font-display text-lg font-semibold text-(--text)">{tech.name}</h3>
-							<p class="text-sm text-(--text-muted) mt-1">{tech.detail}</p>
+					<div class={`stagger-${i + 1} h-full`}>
+						<div class="card p-5 flex items-start gap-4 h-full hover:-translate-y-1 hover:border-(--accent) cursor-pointer">
+							<div class="h-14 w-14 rounded-xl bg-(--accent-soft) border border-(--accent)/30 flex items-center justify-center shrink-0">
+								{Icon && <Icon class="h-8 w-8" />}
+							</div>
+							<div class="min-w-0">
+								<h3 class="font-display text-lg font-semibold text-(--text)">{tech.name}</h3>
+								<p class="text-sm text-(--text-muted) mt-1">{tech.detail}</p>
+							</div>
 						</div>
 					</div>
 				);
