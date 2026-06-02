@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import GithubIcon from '../assets/icons/GithubIcon.astro';
 import LinkedInIcon from '../assets/icons/LinkedInIcon.astro';
 import GmailIcon from '../assets/icons/GmailIcon.astro';
-import { cv, heroHighlights, profile, socialLinks } from '../data/portfolio';
+import { cv, profile, socialLinks } from '../data/portfolio';
 
 const socialIcons = {
 	linkedin: LinkedInIcon,
@@ -27,15 +27,13 @@ const socialIcons = {
 				class="h-40 w-40 md:h-48 md:w-48 rounded-full border-2 border-(--base) object-cover"
 			/>
 		</div>
-		<span class="absolute bottom-3 right-3 h-3.5 w-3.5 rounded-full bg-(--accent) ring-2 ring-(--base)"></span>
 	</div>
 
-	<p class="section-kicker mb-4">{profile.kicker}</p>
 
 	<h1 class="font-display text-4xl md:text-6xl font-extrabold leading-[1.08]" style="letter-spacing: -0.04em;">
 		<span class="text-(--text)">{profile.name}</span>
 		<br />
-		<span class="text-(--accent)">{profile.headline}</span>
+		<span class="text-(--accent)">{profile.role}</span>
 	</h1>
 
 	<p class="mt-5 max-w-2xl mx-auto text-base md:text-lg leading-7 text-(--text-muted)">
@@ -70,17 +68,4 @@ const socialIcons = {
 	>
 		Descargar CV
 	</a>
-
-	<div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
-		{
-			heroHighlights.map((item, i) => (
-				<div class="card text-left p-4">
-					<span class="font-mono text-xs font-medium text-(--accent)">
-						{String(i + 1).padStart(2, '0')}
-					</span>
-					<p class="mt-2 text-sm text-(--text-muted)">{item}</p>
-				</div>
-			))
-		}
-	</div>
 </section>

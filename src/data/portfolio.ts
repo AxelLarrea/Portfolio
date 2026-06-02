@@ -84,18 +84,20 @@ export const experience: {
 	role: string;
 	period: string;
 	description: string[];
+	stack: string[];
 }[] = [
 	{
 		company: 'MyIntelli',
 		role: 'Frontend Developer',
 		period: 'Oct 2025 – Actual',
 		description: [
-			'Desarrollé desde cero una aplicación para gestión de turnos y horarios, reemplazando un sistema legacy',
-			'Implementé arquitectura de microfrontends para migración progresiva',
-			'Construí interfaces reutilizables con React, TypeScript, Tailwind CSS, Zustand y React Router',
-			'Mejoré performance con code splitting y lazy loading',
-			'Trabajé bajo metodología Scrum (dailies, sprints, Kanban)'
-		]
+			'Desarrollé desde cero una aplicación para gestión de turnos y horarios, destinada a reemplazar un módulo legacy existente.',
+			'Participé en la modernización progresiva del sistema mediante una arquitectura orientada a microfrontends.',
+			'Diseñé e implementé interfaces reutilizables utilizando React y TypeScript, priorizando mantenibilidad y consistencia.',
+			'Optimicé el rendimiento mediante code splitting, lazy loading y reducción de renders innecesarios.',
+			'Diseñé la capa de consumo de APIs utilizando TanStack Query.'
+		],
+    stack: ['React', 'TypeScript', 'Tailwind CSS', 'Zustand', 'React Router', 'TanStack Query']
 	}
 ];
 
@@ -107,10 +109,9 @@ export const heroHighlights = [
 
 export const profile = {
 	name: 'Axel Larrea',
-	role: 'Desarrollador Web',
-	kicker: 'Desarrollador Frontend',
-	headline: 'Construyo experiencias web precisas y modernas.',
-	intro: 'Me enfoco en interfaces funcionales, código limpio y productos digitales que se sienten sólidos, rápidos y pensados para durar.',
+	role: 'Frontend Developer',
+	headline: 'Frontend Developer enfocado en rendimiento y calidad de producto.',
+	intro: 'Desarrollo aplicaciones web con React y TypeScript, enfocándome en rendimiento, mantenibilidad y experiencia de usuario.',
 	image: profileImage
 };
 
@@ -122,13 +123,11 @@ export const cv = {
 export const aboutContent = {
 	title: 'Sobre mí',
 	lead: 'Trabajo desde una mirada técnica y de producto: cada sección debe comunicar, rendir bien y resolver una necesidad real.',
-	paragraphs: [
-		'Desarrollador Frontend con experiencia construyendo aplicaciones web modernas con React y TypeScript.',
-		'Participo activamente en la migración de sistemas legacy hacia arquitecturas basadas en microfrontends.',
-		'Me enfoco en desarrollar productos bien pensados, con foco en rendimiento y experiencia de usuario.',
-		'Disfruto resolver problemas reales y seguir creciendo técnicamente en equipos colaborativos.'
+  paragraphs: [
+    'Soy Frontend Developer y actualmente trabajo desarrollando aplicaciones web modernas con React y TypeScript. En mi día a día participo en la modernización de sistemas existentes, contribuyendo al desarrollo de aplicaciones escalables y mantenibles.',
+    'Me gusta involucrarme en las decisiones técnicas de los proyectos, entender los problemas que se intentan resolver y buscar soluciones que sean sostenibles a largo plazo. Considero que una buena aplicación no solo debe funcionar correctamente, sino también ser fácil de mantener y evolucionar.',
+    'Disfruto aprender constantemente, enfrentar nuevos desafíos y seguir creciendo como profesional dentro de equipos colaborativos.',
 	],
-	pills: ['MyIntelli / Frontend Developer', 'React + TypeScript']
 };
 
 export const projects: ProjectItemData[] = [
