@@ -16,18 +16,18 @@ colors:
   accent-soft: 'rgba(34,197,94,0.10)'
 typography:
   display:
-    fontFamily: Archivo
+    fontFamily: Onest Variable
     fontSize: clamp(3rem, 8vw, 5rem)
-    fontWeight: '700'
+    fontWeight: '800'
     lineHeight: '1.08'
     letterSpacing: '-0.04em'
   heading:
-    fontFamily: Archivo
+    fontFamily: Onest Variable
     fontSize: clamp(1.75rem, 4vw, 2.5rem)
-    fontWeight: '600'
+    fontWeight: '700'
     lineHeight: '1.2'
   body:
-    fontFamily: Space Grotesk
+    fontFamily: Onest Variable
     fontSize: 1rem
     fontWeight: '400'
     lineHeight: '1.7'
@@ -55,7 +55,7 @@ A developer-first portfolio aesthetic rooted in the terminal. Deep navy-slate su
 
 - **Terminal Heritage**: Dark backgrounds, monospaced accents, and the green "success" color evoke the developer's natural environment.
 - **Motion with Restraint**: Scroll-triggered reveals and micro-interactions reward exploration without overwhelming.
-- **Typographic Clarity**: Archivo headlines command; Space Grotesk body reads effortlessly; JetBrains Mono grounds in code.
+- **Typographic Clarity**: Onest Variable unifies display and body with geometric precision; JetBrains Mono grounds in code.
 - **Solid Surfaces**: No glassmorphism. Cards are solid `#1E293B` with subtle borders — substantial and professional.
 
 ### Style DNA
@@ -102,8 +102,8 @@ A developer-first portfolio aesthetic rooted in the terminal. Deep navy-slate su
 
 | Role | Font | Weights |
 |------|------|---------|
-| Display | Archivo | 700 |
-| Body | Space Grotesk | 400, 500 |
+| Display | Onest Variable | 800 |
+| Body | Onest Variable | 400, 500 |
 | Mono | JetBrains Mono | 500 |
 
 ## Components

@@ -7,6 +7,9 @@ import ReactIcon from '../assets/icons/technologies/ReactIcon.astro';
 import NodeIcon from '../assets/icons/technologies/NodeIcon.astro';
 import TailwindIcon from '../assets/icons/technologies/TailwindIcon.astro';
 import SupabaseIcon from '../assets/icons/technologies/SupabaseIcon.astro';
+import TanStackQueryIcon from '../assets/icons/technologies/TanStackQueryIcon.astro';
+import ZustandIcon from '../assets/icons/technologies/ZustandIcon.astro';
+import ReactRouterIcon from '../assets/icons/technologies/ReactRouterIcon.astro';
 import { technologies } from '../data/portfolio';
 
 const iconMap = {
@@ -18,6 +21,9 @@ const iconMap = {
 	node: NodeIcon,
 	tailwind: TailwindIcon,
 	supabase: SupabaseIcon,
+	reactRouter: ReactRouterIcon,
+	tanstackQuery: TanStackQueryIcon,
+	zustand: ZustandIcon,
 };
 
 const featuredOrder = ['React', 'TypeScript', 'Tailwind CSS'];
@@ -53,7 +59,7 @@ const secondary = technologies.filter((t) => !featuredOrder.includes(t.name));
 			})
 		}
 	</div>
-
+  
 	<div class="mt-4 flex flex-wrap gap-2">
 		{
 			secondary.map((tech) => {

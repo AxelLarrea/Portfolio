@@ -14,7 +14,10 @@ export type TechnologyIconKey =
 	| 'react'
 	| 'node'
 	| 'tailwind'
-	| 'supabase';
+	| 'supabase'
+	| 'tanstackQuery'
+  | 'zustand'
+  | 'reactRouter';
 
 export interface SectionLink {
 	href: string;
@@ -48,6 +51,7 @@ export interface TechnologyItem {
 }
 
 export const sectionLinks: SectionLink[] = [
+	{ href: '#inicio', label: 'Inicio' },
 	{ href: '#sobre-mi', label: 'Sobre mí' },
 	{ href: '#experiencia', label: 'Experiencia' },
 	{ href: '#proyectos', label: 'Proyectos' },
@@ -83,6 +87,7 @@ export const experience: {
 	company: string;
 	role: string;
 	period: string;
+	intro: string;
 	description: string[];
 	stack: string[];
 }[] = [
@@ -90,28 +95,21 @@ export const experience: {
 		company: 'MyIntelli',
 		role: 'Frontend Developer',
 		period: 'Oct 2025 – Actual',
+    intro: 'Desarrollo desde cero de una aplicación para gestión de turnos y horarios, como parte de una estrategia de modernización y migración progresiva de sistemas legacy.',
 		description: [
-			'Desarrollé desde cero una aplicación para gestión de turnos y horarios, destinada a reemplazar un módulo legacy existente.',
-			'Participé en la modernización progresiva del sistema mediante una arquitectura orientada a microfrontends.',
-			'Diseñé e implementé interfaces reutilizables utilizando React y TypeScript, priorizando mantenibilidad y consistencia.',
+			'Participé en la migración progresiva del sistema legacy mediante una arquitectura orientada a microfrontends.',
+			'Diseñé e implementé interfaces reutilizables utilizando React y TypeScript.',
 			'Optimicé el rendimiento mediante code splitting, lazy loading y reducción de renders innecesarios.',
-			'Diseñé la capa de consumo de APIs utilizando TanStack Query.'
+			'Diseñé la capa de comunicación con APIs utilizando TanStack Query y Query Factory Pattern, mejorando la organización y escalabilidad de las consultas.'
 		],
     stack: ['React', 'TypeScript', 'Tailwind CSS', 'Zustand', 'React Router', 'TanStack Query']
 	}
 ];
 
-export const heroHighlights = [
-	'Interfaces modernas con foco en claridad visual y rendimiento.',
-	'Código limpio y escalable para productos web.',
-	'+1 año de experiencia profesional'
-];
-
 export const profile = {
 	name: 'Axel Larrea',
 	role: 'Frontend Developer',
-	headline: 'Frontend Developer enfocado en rendimiento y calidad de producto.',
-	intro: 'Desarrollo aplicaciones web con React y TypeScript, enfocándome en rendimiento, mantenibilidad y experiencia de usuario.',
+	intro: 'Desarrollo aplicaciones web enfocándome en rendimiento, mantenibilidad y experiencia de usuario.',
 	image: profileImage
 };
 
@@ -155,9 +153,12 @@ export const technologies: TechnologyItem[] = [
 	{ name: 'HTML', detail: 'Estructura semántica y accesible.', accent: 'neutral', icon: 'html' },
 	{ name: 'CSS', detail: 'Layouts, animaciones y detalle visual.', accent: 'neutral', icon: 'css' },
 	{ name: 'JavaScript', detail: 'Lógica interactiva y UI dinámica.', accent: 'cyan', icon: 'javascript' },
-	{ name: 'TypeScript', detail: 'Tipado seguro para escalar componentes.', accent: 'neutral', icon: 'typescript' },
-	{ name: 'React', detail: 'Componentes escalables y reutilizables.', accent: 'cyan', icon: 'react' },
+	{ name: 'TypeScript', detail: 'Tipado estático para código predecible.', accent: 'neutral', icon: 'typescript' },
+	{ name: 'React', detail: 'Desarrollo de interfaces basadas en componentes reutilizables.', accent: 'cyan', icon: 'react' },
 	{ name: 'Node.js', detail: 'APIs y servicios backend.', accent: 'cyan', icon: 'node' },
-	{ name: 'Tailwind CSS', detail: 'Sistemas visuales precisos.', accent: 'violet', icon: 'tailwind' },
+	{ name: 'Tailwind CSS', detail: 'Construcción rápida de interfaces consistentes.', accent: 'violet', icon: 'tailwind' },
 	{ name: 'Supabase', detail: 'Auth, datos y backend ágil.', accent: 'violet', icon: 'supabase' },
+  { name: 'TanStack Query', detail: 'Gestión de caché y estado del servidor.', accent: 'violet', icon: 'tanstackQuery' },
+  { name: 'Zustand', detail: 'Estado global y gestión de estado sencilla.', accent: 'violet', icon: 'zustand' },
+  { name: 'React Router', detail: 'Navegación y enrutamiento de páginas.', accent: 'violet', icon: 'reactRouter' },
 ];

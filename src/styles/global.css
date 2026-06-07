@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@fontsource-variable/onest";
 
 @theme {
   --breakpoint-xs: 400px;
@@ -55,10 +56,15 @@ html {
   color-scheme: dark;
 }
 
+/* ── Sticky header offset for anchor scroll ── */
+section[id]:not(#inicio) {
+  scroll-margin-top: 5rem;
+}
+
 body {
   background: var(--base);
   color: var(--text);
-  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-family: "Onest Variable", system-ui, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -83,11 +89,11 @@ img {
    ============================================ */
 
 .font-display {
-  font-family: "Archivo", system-ui, sans-serif;
+  font-family: "Onest Variable", system-ui, sans-serif;
 }
 
 .font-body {
-  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-family: "Onest Variable", system-ui, sans-serif;
 }
 
 .font-mono {
@@ -139,7 +145,7 @@ img {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, translate 0.25s ease;
 }
 
 .card:hover {
@@ -314,6 +320,38 @@ img {
 }
 
 /* ============================================
+   FOOTER LINK
+   ============================================ */
+
+.footer-link {
+  position: relative;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer-link:hover {
+  color: var(--text);
+}
+
+.footer-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ============================================
    SOCIAL LINK
    ============================================ */
 
@@ -350,6 +388,20 @@ img {
 #copy-email[data-copied] {
   border-color: var(--accent) !important;
   color: var(--accent) !important;
+}
+
+/* ============================================
+   NAV ACTIVE (scroll-spy)
+   ============================================ */
+
+.nav-link[data-active="true"] {
+  color: var(--text);
+  background: var(--surface-elevated);
+}
+
+.nav-logo[data-active="true"] {
+  color: var(--accent);
+  text-shadow: 0 0 16px var(--accent-glow);
 }
 
 /* ============================================

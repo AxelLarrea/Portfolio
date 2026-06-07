@@ -20,11 +20,14 @@ const socialIconMap: Record<string, typeof GithubIcon> = {
 		Contacto
 	</h2>
 
-	<p class="mt-3 text-base leading-7 text-(--text-muted) max-w-lg">
-		Si querés conversar sobre un proyecto, una idea o simplemente conectar, escribime.
+	<p class="mt-3 text-base leading-7 text-(--text-muted)">
+		Actualmente estoy explorando nuevas oportunidades como Frontend Developer.
+	</p>
+  <p class="mt-1 text-base leading-7 text-(--text-muted)">
+    Si te interesa conversar sobre una posición o proyecto, podés escribirme por correo electrónico.
 	</p>
 
-	<div class="card rounded-xl p-6 md:p-8 mt-6">
+	<div class="card rounded-xl p-6 mt-6">
 		<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
 			<span class="font-mono text-sm text-(--text) truncate">axel.larrea.9@gmail.com</span>
 
@@ -38,37 +41,6 @@ const socialIconMap: Record<string, typeof GithubIcon> = {
 					<span>Enviar</span>
 				</a>
 			</div>
-		</div>
-
-		<div class="divider my-5"></div>
-
-		<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-			<div class="flex gap-4 text-sm text-(--text-muted)">
-				{
-					socialLinks.map((link) => {
-						const Icon = socialIconMap[link.icon];
-						return (
-							<a
-								href={link.href}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="hover:text-(--accent) transition-colors cursor-pointer flex items-center gap-1.5"
-							>
-								{Icon && <Icon class="h-4 w-4" />}
-								{link.label}
-							</a>
-						);
-					})
-				}
-			</div>
-
-			<a
-				href={cv.href}
-				download={cv.downloadName}
-				class="btn-primary cursor-pointer"
-			>
-				Descargar CV
-			</a>
 		</div>
 	</div>
 </section>

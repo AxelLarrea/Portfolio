@@ -29,3 +29,6 @@ pnpm-debug.log*
 
 # SDD artifacts (engram memory)
 .atl/
+
+# Fallow extension artifacts
+.fallow/

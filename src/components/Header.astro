@@ -8,7 +8,8 @@ import { sectionLinks } from '../data/portfolio';
 	<nav class="card rounded-xl flex items-center justify-between px-4 py-3 md:px-6">
 		<a
 			href="#inicio"
-			class="font-display text-lg font-extrabold tracking-tight text-(--text) cursor-pointer"
+			data-section="#inicio"
+			class="nav-logo font-display text-lg font-extrabold tracking-tight text-(--text) cursor-pointer transition-colors duration-300"
 		>
 			AL.DEV
 		</a>
@@ -18,7 +19,8 @@ import { sectionLinks } from '../data/portfolio';
 				sectionLinks.map((link) => (
 					<a
 						href={link.href}
-						class="rounded-full px-3 py-1.5 text-sm text-(--text-muted) hover:text-(--text) hover:bg-(--surface-elevated) transition duration-200 cursor-pointer"
+						data-section={link.href}
+						class="nav-link rounded-full px-3 py-1.5 text-sm text-(--text-muted) hover:text-(--text) hover:bg-(--surface-elevated) transition duration-200 cursor-pointer"
 					>
 						{link.label}
 					</a>
@@ -56,4 +58,49 @@ import { sectionLinks } from '../data/portfolio';
 		localStorage.setItem('portfolio-theme', isLight ? 'light' : 'dark');
 		updateIcons(isLight);
 	});
+
+	// ── Scroll-spy ──────────────────────────────
+	const navItems = document.querySelectorAll<HTMLElement>('[data-section]');
+	const sections = document.querySelectorAll<HTMLElement>('section[id]');
+
+	let observerLocked = false;
+
+	// Click manual: activar inmediatamente y congelar observer durante el scroll
+	navItems.forEach((link) => {
+		link.addEventListener('click', (e) => {
+			navItems.forEach((l) => (l.dataset.active = 'false'));
+			link.dataset.active = 'true';
+			observerLocked = true;
+			setTimeout(() => {
+				observerLocked = false;
+			}, 1000);
+
+			// #inicio: forzar scroll al tope real de la página
+			if (link.dataset.section === '#inicio') {
+				e.preventDefault();
+        window.location.hash = '#inicio';
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			}
+		});
+	});
+
+	const observer = new IntersectionObserver((entries) => {
+		if (observerLocked) return;
+
+		const visible = entries
+			.filter((e) => e.isIntersecting)
+			.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+		if (visible.length > 0) {
+			const currentId = `#${visible[0].target.id}`;
+			navItems.forEach((link) => {
+				link.dataset.active = link.dataset.section === currentId ? 'true' : 'false';
+			});
+		}
+	}, {
+		rootMargin: '-80px 0px -70% 0px',
+		threshold: 0,
+	});
+
+	sections.forEach((section) => observer.observe(section));
 </script>
