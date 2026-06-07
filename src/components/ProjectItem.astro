@@ -34,24 +34,26 @@ const { project } = Astro.props as { project: ProjectItemData };
 					href={project.liveUrl}
 					target="_blank"
 					rel="noopener noreferrer"
+					aria-label={`Ver demo de ${project.title}`}
 					class="h-10 w-10 rounded-lg flex items-center justify-center cursor-pointer focus-ring transition-colors duration-200"
 					style="border: 1px solid var(--border); background: var(--surface); color: var(--text-muted);"
 					onmouseover="this.style.borderColor='var(--accent)'; this.style.color='var(--accent)';"
 					onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text-muted)';"
 				>
-					<WebIcon class="h-4 w-4" />
+					<WebIcon class="h-4 w-4" aria-hidden="true" />
 				</a>
 
 				<a
 					href={project.codeUrl}
 					target="_blank"
 					rel="noopener noreferrer"
+					aria-label={`Ver código de ${project.title}`}
 					class="h-10 w-10 rounded-lg flex items-center justify-center cursor-pointer focus-ring transition-colors duration-200"
 					style="border: 1px solid var(--border); background: var(--surface); color: var(--text-muted);"
 					onmouseover="this.style.borderColor='var(--accent)'; this.style.color='var(--accent)';"
 					onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text-muted)';"
 				>
-					<GitRepoIcon class="h-4 w-4" />
+					<GitRepoIcon class="h-4 w-4" aria-hidden="true" />
 				</a>
 			</div>
 		</div>

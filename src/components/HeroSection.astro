@@ -24,7 +24,12 @@ const socialIcons = {
 			<Image
 				src={profile.image}
 				alt={profile.name}
+				width={192}
+				height={192}
+				loading="eager"
+				decoding="sync"
 				class="h-40 w-40 md:h-48 md:w-48 rounded-full border-2 border-(--base) object-cover"
+				fetchpriority="high"
 			/>
 		</div>
 	</div>
